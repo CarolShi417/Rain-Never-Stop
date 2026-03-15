@@ -13,14 +13,11 @@ public class LightController : MonoBehaviour
 
     private void Update()
     {
-        if(playerInLight)
+        if (playerInLight)
         {
             lightTimer += Time.deltaTime;
         }
-        if(lightTimer >= lightDuration_stateToHalfDry && PlayerStateManager.currentState == PlayerState.HalfWet)
-        {
-            PlayerStateManager.ChangeState(PlayerState.Normal);
-        }
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -28,8 +25,7 @@ public class LightController : MonoBehaviour
         {
             //Debug.Log("玩家来到光下");
             playerInLight = true;
-            
-            
+
         }
     }
 

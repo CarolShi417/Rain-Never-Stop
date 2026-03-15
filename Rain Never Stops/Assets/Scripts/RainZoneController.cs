@@ -4,8 +4,7 @@ using UnityEngine.Events;
 public class TimeCircling : MonoBehaviour
 {
     [SerializeField] private float timer = 0.0f;
-    public float rainDuration_stateToHalfwet;
-
+    [SerializeField] private float humidity;
     void Start()
     {
         
@@ -15,10 +14,11 @@ public class TimeCircling : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        humidity += Time.deltaTime;
+        PlayerStateManagement.humidity = humidity;
 
-        if(timer >= rainDuration_stateToHalfwet && PlayerStateManager.currentState == PlayerState.Normal)
-        {
-            PlayerStateManager.ChangeState(PlayerState.HalfWet);
-        }
+        PlayerStateManagement.ChangeState();
+        PlayerStateManagement.ChangeBehaviorState();
+        
     }
 }
