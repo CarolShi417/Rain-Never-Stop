@@ -1,24 +1,34 @@
 using UnityEngine;
-using UnityEngine.Events;
 
-public class TimeCircling : MonoBehaviour
+public class RainZoneController : MonoBehaviour
 {
-    [SerializeField] private float timer = 0.0f;
-    public float rainDuration_stateToHalfwet;
+    [SerializeField] private float wetnessPerSecond = 1f;
 
-    void Start()
+    private bool playerInRain;
+
+    private void Update()
     {
-        
+        if (!playerInRain)
+        {
+            return;
+        }
+
+        PlayerStateManager.AddWetness(wetnessPerSecond * Time.deltaTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        timer += Time.deltaTime;
-
-        if(timer >= rainDuration_stateToHalfwet && PlayerStateManager.currentState == PlayerState.Normal)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            PlayerStateManager.ChangeState(PlayerState.HalfWet);
+            playerInRain = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            playerInRain = false;
         }
     }
 }

@@ -3,8 +3,7 @@ using UnityEngine;
 public class LightController : MonoBehaviour
 {
     [SerializeField] private float lightTimer;
-    [SerializeField] private float lightDuration_stateToHalfDry = 5f;
-    private bool playerInLight = false;
+    private bool playerInLight;
 
     private void Start()
     {
@@ -13,27 +12,23 @@ public class LightController : MonoBehaviour
 
     private void Update()
     {
-        if(playerInLight)
+        if (!playerInLight)
         {
-            lightTimer += Time.deltaTime;
+            return;
         }
-        if(lightTimer >= lightDuration_stateToHalfDry && PlayerStateManager.currentState == PlayerState.HalfWet)
-        {
-            PlayerStateManager.ChangeState(PlayerState.Normal);
-        }
+
+        lightTimer += Time.deltaTime;
     }
-    void OnTriggerEnter2D(Collider2D other)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //Debug.Log("玩家来到光下");
             playerInLight = true;
-            
-            
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
