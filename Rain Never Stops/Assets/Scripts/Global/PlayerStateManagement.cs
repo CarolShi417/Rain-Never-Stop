@@ -6,6 +6,8 @@ public static class PlayerStateManagement
 
     public static PlayerBehaviorState currentBehaviorState = PlayerBehaviorState.Dry;
 
+    public static bool playerInLight = false;
+
     public static float humidity = 0f;
     public static void ChangeState()
     {
@@ -15,7 +17,7 @@ public static class PlayerStateManagement
         {
             currentState = PlayerState.Alive;
         }
-        else if(humidity >= 20f)
+        else if (humidity >= 20f)
         {
             currentState = PlayerState.Dead;
         }
@@ -26,7 +28,7 @@ public static class PlayerStateManagement
 
         if (previousState != currentState)
         {
-            Debug.Log($"PlayerState changed ¡ú {currentState}");
+            Debug.Log($"PlayerState changed to: {currentState}");
         }
     }
 
@@ -39,7 +41,7 @@ public static class PlayerStateManagement
         {
             currentBehaviorState = PlayerBehaviorState.Dry;
         }
-        else if (humidity <= 5f  && humidity >= 1f)
+        else if (humidity <= 5f && humidity >= 1f)
         {
             currentBehaviorState = PlayerBehaviorState.LightlyWet;
         }
@@ -58,7 +60,7 @@ public static class PlayerStateManagement
 
         if (previousBehaviorState != currentBehaviorState)
         {
-            Debug.Log($"Íæ¼Ò¶¯»­×´Ì¬ changed ¡ú {currentBehaviorState}");
+            Debug.Log($"Íæ¼Ò¶¯»­×´Ì¬ changed: {currentBehaviorState}");
         }
         //Debug.Log("StateManagement HumidityÎª" + humidity);
     }
