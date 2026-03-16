@@ -15,8 +15,8 @@ TagManager:
   - Exit
   - Light
   - Monster
-  - Important
-  - 
+  - HighlightCollider
+  - ClickCollider
   - 
   - 
   - 

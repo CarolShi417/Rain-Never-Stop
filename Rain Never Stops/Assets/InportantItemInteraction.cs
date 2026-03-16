@@ -2,21 +2,34 @@ using UnityEngine;
 
 public class InportantItemInteraction : MonoBehaviour
 {
-    [SerializeField] private GameObject highlight;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject uiPanel;
 
     private bool playerInside = false;
+        
+    private Color originalColor;//用于控制靠近高亮
 
     void Start()
     {
-        highlight.SetActive(false);
+        originalColor = spriteRenderer.color;
+        uiPanel.SetActive(false);
     }
 
     void Update()
     {
+        //判断鼠标是否在物体上
         if (playerInside && Input.GetMouseButtonDown(0))
         {
-            uiPanel.SetActive(true);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+            if (hit.collider != null &&
+                hit.collider.transform.parent == transform &&
+                hit.collider.gameObject.layer == LayerMask.NameToLayer("ClickCollider"))
+            {
+                uiPanel.SetActive(true);
+            }
         }
     }
 
@@ -25,7 +38,7 @@ public class InportantItemInteraction : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             playerInside = true;
-            highlight.SetActive(true);
+            spriteRenderer.color = Color.red;
             Debug.Log("player进入关键道具区");
         }
     }
@@ -35,7 +48,8 @@ public class InportantItemInteraction : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             playerInside = false;
-            highlight.SetActive(false);
+            spriteRenderer.color = originalColor;
         }
     }
+    //
 }
