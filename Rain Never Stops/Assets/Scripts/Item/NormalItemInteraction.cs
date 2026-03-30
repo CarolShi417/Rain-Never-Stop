@@ -3,8 +3,13 @@ using UnityEngine.UI;
 
 public class NormalItemInteraction : MonoBehaviour
 {
+    [Header("眼睛+物品基本信息UI")]
+    [SerializeField] private EyePanel eyePanel;
+    [SerializeField] private Transform eyePanelAnchor; // UI出现位置
+    [SerializeField] private string nameText;//文字内容                                                   
+
     [Header("气泡UI")]
-    [SerializeField] private BubblePanel ui;    
+    [SerializeField] private BubblePanel bubblePanel;    
     [SerializeField] private Transform canvasTransform; // 拖 Canvas
     [SerializeField] private Transform anchor; // UI出现位置
     [SerializeField] private string contentText;//文字内容
@@ -12,52 +17,92 @@ public class NormalItemInteraction : MonoBehaviour
 
     [Header("缩放")]
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private float scaleMultiplier = 1.2f;   
+    [SerializeField] private float scaleMultiplier = 1.2f;
     private Vector3 originalScale;
 
     [Header("是否已交互")]
     [SerializeField] private ItemInteractionManagement itemInterManager;
-    private bool hasInteracted = false;
+    private bool hasInteracted = false;//是否已交互
+    private bool playerNearItem = false;//玩家是否在触发bubble范围内
 
     void Start()
     {
         originalScale = transform.localScale;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        bubblePanel.gameObject.SetActive(false);
     }
 
+    void Update()
+    {     
+        //鼠标和物体交互 BubblePanel
+        if (Input.GetMouseButtonDown(0) && playerNearItem)
+        {
+            // 获取鼠标世界坐标
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // 在点击点检测碰撞
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+            // 判断是否点击到这个物体或其子物体
+            if (hit.collider != null && hit.collider.transform.IsChildOf(transform))
+            {
+                ShowHideBubblePanel();
+            }
+
+        }
+
+    }
+    //玩家进入范围
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            playerNearItem = true;
+
             // 放大item sprite
             transform.localScale = originalScale * scaleMultiplier;
-                        
-            // 设置UI内容
-            ui.Setup(contentText, panelSprite, anchor);
-            ui.gameObject.SetActive(true);
-            
 
-            //确认此物品是否已交互
-            if (hasInteracted) return; // 防止重复触发
+            eyePanel.Setup(contentText, anchor);
+            eyePanel.gameObject.SetActive(true);
+            //EyePanelManagement.Instance.Show(eyePanelAnchor);//通知全局UI
 
-            hasInteracted = true;
-
-            itemInterManager.RegisterInteraction();
         }
     }
-
+    //玩家离开范围
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            //ui.HideText();
-
             // 恢复大小
             transform.localScale = originalScale;
 
-            ui.gameObject.SetActive(false);
-            
+            playerNearItem = false;
 
+            bubblePanel.gameObject.SetActive(false);
+            eyePanel.gameObject.SetActive(false);
+            //EyePanelManagement.Instance.Show(eyePanelAnchor);
+        }
+    }
+    void ShowHideBubblePanel()
+    {
+        bool isActive = bubblePanel.gameObject.activeSelf;
+
+        if (isActive)
+        {
+            // 已显示 → 关闭
+            bubblePanel.gameObject.SetActive(false);
+        }
+        else
+        {
+            // 未显示 → 打开
+            bubblePanel.Setup(contentText, panelSprite, anchor);
+            bubblePanel.gameObject.SetActive(true);
+
+            // 第一次点击才计数
+            if (!hasInteracted)
+            {
+                hasInteracted = true;
+                itemInterManager.RegisterInteraction();
+            }
         }
     }
     

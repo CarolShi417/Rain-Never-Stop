@@ -33,6 +33,7 @@ Transform:
   m_Children:
   - {fileID: 7497468267327194906}
   - {fileID: 1931365932323514346}
+  - {fileID: 8708502579187732697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4400758647182300308
@@ -92,13 +93,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb146a30e145ee489cd323b97fee9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
-  panelPrefab: {fileID: 0}
-  canvasTransform: {fileID: 0}
+  eyePanel: {fileID: 0}
+  eyePanelAnchor: {fileID: 0}
+  scaleMultiplier: 1.2
+  bubblePanel: {fileID: 0}
   anchor: {fileID: 0}
   contentText: 
   panelSprite: {fileID: 0}
-  scaleMultiplier: 1.2
+  itemInterManager: {fileID: 0}
+--- !u!1 &2936054451222811999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8708502579187732697}
+  m_Layer: 0
+  m_Name: AnchorforEyePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8708502579187732697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2936054451222811999}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: 1.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6570518607461591084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2972830724158080055
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931365932323514346}
   m_Layer: 0
-  m_Name: AnchorforPanel
+  m_Name: AnchorforBubblePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 2972830724158080055}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19, y: 2.43, z: 0}
+  m_LocalPosition: {x: -0.19, y: 3.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,7 +174,7 @@ GameObject:
   - component: {fileID: 7497468267327194906}
   - component: {fileID: 4513013584923772240}
   m_Layer: 0
-  m_Name: Square
+  m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

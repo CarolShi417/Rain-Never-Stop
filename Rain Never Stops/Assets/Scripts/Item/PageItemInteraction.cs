@@ -8,20 +8,39 @@ public class PageItemInteraction : MonoBehaviour
     [SerializeField] private Sprite panelSprite;
 
     [Header("缩放")]
-    private SpriteRenderer spriteRenderer;
+    //private SpriteRenderer spriteRenderer;
     [SerializeField] private float scaleMultiplier = 1.2f;
     private Vector3 originalScale;
 
     [Header("是否已交互")]
     [SerializeField] private ItemInteractionManagement itemInterManager;
     private bool hasInteracted = false;
+    private bool playerNearItem = false;//玩家是否在触发panel范围内
 
     void Start()
     {
         originalScale = transform.localScale;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
     }
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && playerNearItem)
+        {
+            // 获取鼠标世界坐标
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            // 在点击点检测碰撞
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+            // 判断是否点击到这个物体或其子物体
+            if (hit.collider != null && hit.collider.transform.IsChildOf(transform))
+            {
+                //ShowPagePanel();
+            }
+
+        }
+
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
@@ -49,4 +68,6 @@ public class PageItemInteraction : MonoBehaviour
 
         ui.gameObject.SetActive(false);
     }
+
+    
 }
