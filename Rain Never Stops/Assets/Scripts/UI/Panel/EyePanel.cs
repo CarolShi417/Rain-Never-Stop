@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class EyePanel : MonoBehaviour
 {
     public TMP_Text text;
-    [SerializeField] private Transform anchor;
+    private Transform anchor;
    
 
 

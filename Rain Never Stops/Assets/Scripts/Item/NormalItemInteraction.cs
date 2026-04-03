@@ -3,15 +3,19 @@ using UnityEngine.UI;
 
 public class NormalItemInteraction : MonoBehaviour
 {
-    [Header("眼睛+物品基本信息UI")]
+    [Header("Collider")]
+    [SerializeField] private Collider2D triggerCollider; //判定玩家是否在附近
+    [SerializeField] private Collider2D mouseClickCollider; //判定鼠标是否正确点击物体
+
+    [Header("眼睛UI")]
     [SerializeField] private EyePanel eyePanel;
     [SerializeField] private Transform eyePanelAnchor; // UI出现位置
     [SerializeField] private string nameText;//文字内容                                                   
 
     [Header("气泡UI")]
     [SerializeField] private BubblePanel bubblePanel;    
-    [SerializeField] private Transform canvasTransform; // 拖 Canvas
-    [SerializeField] private Transform anchor; // UI出现位置
+    //[SerializeField] private Transform canvasTransform; // 拖 Canvas
+    [SerializeField] private Transform bubblePanelAnchor; // UI出现位置
     [SerializeField] private string contentText;//文字内容
     [SerializeField] private Sprite panelSprite;//panel形状
 
@@ -29,6 +33,7 @@ public class NormalItemInteraction : MonoBehaviour
     {
         originalScale = transform.localScale;
         bubblePanel.gameObject.SetActive(false);
+        eyePanel.gameObject.SetActive(false);
     }
 
     void Update()
@@ -61,10 +66,8 @@ public class NormalItemInteraction : MonoBehaviour
             // 放大item sprite
             transform.localScale = originalScale * scaleMultiplier;
 
-            eyePanel.Setup(contentText, anchor);
+            eyePanel.Setup(nameText, eyePanelAnchor);
             eyePanel.gameObject.SetActive(true);
-            //EyePanelManagement.Instance.Show(eyePanelAnchor);//通知全局UI
-
         }
     }
     //玩家离开范围
@@ -79,7 +82,6 @@ public class NormalItemInteraction : MonoBehaviour
 
             bubblePanel.gameObject.SetActive(false);
             eyePanel.gameObject.SetActive(false);
-            //EyePanelManagement.Instance.Show(eyePanelAnchor);
         }
     }
     void ShowHideBubblePanel()
@@ -94,7 +96,7 @@ public class NormalItemInteraction : MonoBehaviour
         else
         {
             // 未显示 → 打开
-            bubblePanel.Setup(contentText, panelSprite, anchor);
+            bubblePanel.Setup(contentText, panelSprite, bubblePanelAnchor);
             bubblePanel.gameObject.SetActive(true);
 
             // 第一次点击才计数

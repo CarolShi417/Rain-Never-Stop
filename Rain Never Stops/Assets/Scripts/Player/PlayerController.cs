@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour
 
         // 移动
         transform.Translate(Vector2.right * horizontalMove * Time.deltaTime);
+        //Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        //rb.MovePosition(rb.position + new Vector2(horizontalMove * Time.deltaTime, 0));
 
         // 改变x轴方向
         if (horizontal != 0)

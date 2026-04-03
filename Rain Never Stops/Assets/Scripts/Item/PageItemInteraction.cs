@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class PageItemInteraction : MonoBehaviour
 {
-    [Header("弹窗UI")]
-    [SerializeField] private PagePanel ui;
-    [SerializeField] private string contentText;
-    [SerializeField] private Sprite panelSprite;
+    [Header("Collider")]
+    [SerializeField] private Collider2D triggerCollider; //判定玩家是否在附近
+    [SerializeField] private Collider2D mouseClickCollider; //判定鼠标是否正确点击物体
+
+    [Header("眼睛UI")]
+    [SerializeField] private EyePanel eyePanel;
+    [SerializeField] private Transform eyePanelAnchor; // UI出现位置
+    [SerializeField] private string nameText;//文字内容                      
+
+    [Header("气泡UI")]
+    [SerializeField] private PagePanel pagePanel;
 
     [Header("缩放")]
     //private SpriteRenderer spriteRenderer;
@@ -14,13 +21,13 @@ public class PageItemInteraction : MonoBehaviour
 
     [Header("是否已交互")]
     [SerializeField] private ItemInteractionManagement itemInterManager;
-    private bool hasInteracted = false;
     private bool playerNearItem = false;//玩家是否在触发panel范围内
 
     void Start()
     {
         originalScale = transform.localScale;
-        //spriteRenderer = GetComponent<SpriteRenderer>();
+        pagePanel.gameObject.SetActive(false);
+        eyePanel.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -35,39 +42,45 @@ public class PageItemInteraction : MonoBehaviour
             // 判断是否点击到这个物体或其子物体
             if (hit.collider != null && hit.collider.transform.IsChildOf(transform))
             {
-                //ShowPagePanel();
+                ShowPagePanel();
             }
 
         }
 
     }
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("进入");
+            playerNearItem = true;
 
-        // 放大
-        transform.localScale = originalScale * scaleMultiplier;
+            // 放大item sprite
+            transform.localScale = originalScale * scaleMultiplier;
 
-        // 只传数据（位置由 BubblePanel 内部处理）
-        ui.Setup(contentText, panelSprite);
-        ui.gameObject.SetActive(true);
-
-        // 防重复触发
-        if (hasInteracted) return;
-
-        hasInteracted = true;
-        itemInterManager.RegisterInteraction();
+            eyePanel.Setup(nameText, eyePanelAnchor);
+            eyePanel.gameObject.SetActive(true);
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other.CompareTag("Player"))
+        {
+            // 恢复大小
+            transform.localScale = originalScale;
 
-        // 恢复大小
-        transform.localScale = originalScale;
+            playerNearItem = false;
 
-        ui.gameObject.SetActive(false);
+            eyePanel.gameObject.SetActive(false);
+        }
     }
 
-    
+    void ShowPagePanel()
+    {
+        pagePanel.gameObject.SetActive(true);
+    }
+
 }

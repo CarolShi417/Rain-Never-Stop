@@ -6,7 +6,7 @@ public class BubblePanel : MonoBehaviour
 {
     public TMP_Text text;
     public Image background;
-    [SerializeField] private Transform anchor;
+    private Transform anchor;
    
 
 
