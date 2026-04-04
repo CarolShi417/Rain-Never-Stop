@@ -4,13 +4,17 @@ using System.Collections;
 
 public class LightController : MonoBehaviour
 {
-    
+    public GameObject lightline_small;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //Debug.Log("Íæ¼ÒÀ´µ½¹âÏÂ");
+            //Debug.Log("ç©å®¶æ¥åˆ°å…‰ä¸‹");
             PlayerStateManagement.playerInLight = true;
+            // è®© lightline_small åŠé€æ˜
+            SetSpriteAlpha(lightline_small, 0.3f);
+
             StartCoroutine(DestroyByRain());
         }
     }
@@ -20,6 +24,8 @@ public class LightController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             PlayerStateManagement.playerInLight = false;
+            // æ¢å¤é€æ˜åº¦
+            SetSpriteAlpha(lightline_small, 1f);
             //Debug.Log("playerInLight" + PlayerStateManagement.playerInLight);
         }
     }
@@ -27,7 +33,19 @@ public class LightController : MonoBehaviour
     IEnumerator DestroyByRain()
     {
         yield return new WaitForSeconds(5f);
-        //²¥·Å¶¯»­
+        //æ’­æ”¾åŠ¨ç”»
         Destroy(gameObject);
+    }
+
+    //è®¾ç½®ç‰©ä½“spriterendereré€æ˜åº¦
+    private void SetSpriteAlpha(GameObject obj, float alpha)
+    {
+        SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            Color c = sr.color;
+            c.a = alpha;   // alpha èŒƒå›´ 0~1
+            sr.color = c;
+        }
     }
 }

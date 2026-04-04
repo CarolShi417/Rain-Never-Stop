@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4924458635237359090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1800001, y: 2.77, z: 0.07952709}
+  m_LocalPosition: {x: -0.52, y: 2.86, z: 0.07952709}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 31
   m_Sprite: {fileID: 21300000, guid: 6b8b93b95a178ee469e07664956895ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3795696319756587771}
   - component: {fileID: 257987926989422372}
+  - component: {fileID: 2383411471022869863}
   m_Layer: 8
   m_Name: light_small
   m_TagString: Untagged
@@ -156,7 +157,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 29
   m_Sprite: {fileID: 21300000, guid: ea47f37830acfc945b13c2d58d44b5eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -168,6 +169,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2383411471022869863
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6029699486306964804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c99c2be720df2f142b3266331623e0d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8467295583894804310
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,3 +282,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c6000c0dece7b478b7f41bd992da1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightline_small: {fileID: 4924458635237359090}
