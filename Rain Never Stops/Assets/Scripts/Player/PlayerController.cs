@@ -3,15 +3,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //玩家移动模式，是否只能往右走
-    public enum MoveMode
-    {
-        RightOnly,
-        LeftRight
-    }
-    [Header("moveMode")]
-    [SerializeField] private MoveMode moveMode = MoveMode.LeftRight;
+    //public enum MoveMode
+    //{
+    //    RightOnly,
+    //    LeftRight
+    //}
+    //[Header("moveMode")]
+    //[SerializeField] private MoveMode moveMode = MoveMode.LeftRight;
 
-    [Header("speed")]
+    [Header("移动范围")]
+    public float minX  = -10f;
+    public float maxX = 10f;
+    [Header("移动速度")]
     [SerializeField] private float currentSpeed;//在inspector显示当前速度，方便调试
     
     [SerializeField] private float drySpeed = 20f;
@@ -54,21 +57,26 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         //进入rain scene，只能往右走
-        if (moveMode == MoveMode.RightOnly)
-        {
-            horizontal = Mathf.Max(0f, horizontal);
-        }
+        //if (moveMode == MoveMode.RightOnly)
+        //{
+        //    horizontal = Mathf.Max(0f, horizontal);
+        //}
 
 
         // 根据状态获取速度
         currentSpeed = GetMoveSpeed();
         horizontalMove = horizontal * currentSpeed;
 
-        // 移动
-        transform.Translate(Vector2.right * horizontalMove * Time.deltaTime);
-        //Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        //rb.MovePosition(rb.position + new Vector2(horizontalMove * Time.deltaTime, 0));
+        // 限制X轴范围
+        float newX = transform.position.x + horizontalMove * Time.deltaTime;        
+        newX = Mathf.Clamp(newX, minX, maxX);
 
+        // 应用新位置
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+
+        // 移动
+        //transform.Translate(Vector2.right * horizontalMove * Time.deltaTime);
+        
         // 改变x轴方向
         if (horizontal != 0)
         {

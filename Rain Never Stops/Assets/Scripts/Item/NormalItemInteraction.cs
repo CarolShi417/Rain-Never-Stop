@@ -92,6 +92,13 @@ public class NormalItemInteraction : MonoBehaviour
         {
             // 已显示 → 关闭
             bubblePanel.gameObject.SetActive(false);
+
+            // 第一次打开-关闭才计数
+            if (!hasInteracted)
+            {
+                hasInteracted = true;
+                itemInterManager.RegisterInteraction();
+            }
         }
         else
         {
@@ -99,12 +106,7 @@ public class NormalItemInteraction : MonoBehaviour
             bubblePanel.Setup(contentText, panelSprite, bubblePanelAnchor);
             bubblePanel.gameObject.SetActive(true);
 
-            // 第一次点击才计数
-            if (!hasInteracted)
-            {
-                hasInteracted = true;
-                itemInterManager.RegisterInteraction();
-            }
+            
         }
     }
     
