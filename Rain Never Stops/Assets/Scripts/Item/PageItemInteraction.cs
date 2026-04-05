@@ -21,6 +21,7 @@ public class PageItemInteraction : MonoBehaviour
 
     [Header("是否已交互")]
     [SerializeField] private ItemInteractionManagement itemInterManager;
+    private bool hasInteracted = false;//是否已交互
     private bool playerNearItem = false;//玩家是否在触发panel范围内
 
     void Start()
@@ -54,7 +55,7 @@ public class PageItemInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("进入");
+            //Debug.Log("进入");
             playerNearItem = true;
 
             // 放大item sprite
@@ -83,4 +84,13 @@ public class PageItemInteraction : MonoBehaviour
         pagePanel.gameObject.SetActive(true);
     }
 
+    //如果按下取消按钮，那么该道具判定为已交互
+    public void onCancelButton()
+    {
+        if (!hasInteracted)
+        {
+            hasInteracted = true;
+            itemInterManager.RegisterInteraction();
+        }
+    }
 }

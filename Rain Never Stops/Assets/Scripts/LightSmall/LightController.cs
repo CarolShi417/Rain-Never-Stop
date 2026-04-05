@@ -5,6 +5,14 @@ using System.Collections;
 public class LightController : MonoBehaviour
 {
     public GameObject lightline_small;
+    public GameObject light_small;
+
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = light_small.GetComponent<Animator>(); // 获取Animator
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,8 +40,10 @@ public class LightController : MonoBehaviour
 
     IEnumerator DestroyByRain()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.5f);
         //播放动画
+        animator.SetBool("isStartDissolve", true);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 
