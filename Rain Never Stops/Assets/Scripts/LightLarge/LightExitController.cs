@@ -56,7 +56,15 @@ public class LightExitController : MonoBehaviour
 
     IEnumerator GoToNextScene()
     {
-        lightInteraction.ShowBubblePanel();
+        if (lightInteraction != null)
+        {
+            lightInteraction.ShowBubblePanel();
+        }
+        else
+        {
+            Debug.LogWarning("LightInteraction 未绑定，跳过提示面板显示。");
+        }
+
         //等待2s
         yield return new WaitForSeconds(2f);
 

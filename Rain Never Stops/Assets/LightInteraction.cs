@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LightInteraction : MonoBehaviour
@@ -7,7 +5,10 @@ public class LightInteraction : MonoBehaviour
     [Header("UI文字")]
     [SerializeField] private Transform bubblePanelAnchor; // UI出现位置
     [SerializeField] private string contentText;//文字内容
-    // Start is called before the first frame update
+
+    [SerializeField] private LightSmallPanel lightSmallPanel;
+
+
     void Start()
     {
         
@@ -20,7 +21,41 @@ public class LightInteraction : MonoBehaviour
     }
     public void ShowBubblePanel()
     {
-        LightSmallPanel.Instance.Setup(bubblePanelAnchor);
+        //LightSmallPanel.Instance.Setup(bubblePanelAnchor);
 
+        LightSmallPanel panel = lightSmallPanel != null ? lightSmallPanel : LightSmallPanel.Instance;
+        if (panel == null)
+        {
+            panel = FindPanelInScene();
+        }
+
+        if (panel == null)
+        {
+            Debug.LogError("LightSmallPanel 未找到，无法显示提示面板。");
+            return;
+        }
+
+        if (bubblePanelAnchor == null)
+        {
+            Debug.LogError("bubblePanelAnchor 未设置，无法显示提示面板。");
+            return;
+        }
+
+        panel.Setup(bubblePanelAnchor);
+
+    }
+
+    private LightSmallPanel FindPanelInScene()
+    {
+        LightSmallPanel[] panels = Resources.FindObjectsOfTypeAll<LightSmallPanel>();
+        foreach (LightSmallPanel panel in panels)
+        {
+            if (panel.gameObject.scene.IsValid())
+            {
+                return panel;
+            }
+        }
+
+        return null;
     }
 }

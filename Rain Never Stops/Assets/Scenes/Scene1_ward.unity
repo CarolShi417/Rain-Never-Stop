@@ -2306,6 +2306,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6906451814010940167, guid: f50f4a562afce5244b1e5e62549ea74b, type: 3}
   m_PrefabInstance: {fileID: 1801931181}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1805117212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7870399768044413444, guid: 662fa51abbf18074daa635414d67cbc7, type: 3}
+  m_PrefabInstance: {fileID: 176401731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182ca554650c5d54c907c06aa24f6c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1843863422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8708502579187732697, guid: ad8ff7c9030e3aa498ecdb3dac67bd3d, type: 3}
@@ -2319,6 +2330,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1077550340525050689, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
+      propertyPath: lightSmallPanel
+      value: 
+      objectReference: {fileID: 1805117212}
     - target: {fileID: 4599992693517055720, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
       propertyPath: m_Name
       value: Light_large_exit
