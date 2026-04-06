@@ -2,30 +2,27 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class BubblePanel : MonoBehaviour
+public class LightSmallPanel : MonoBehaviour
 {
-    public TMP_Text text;
+    public static LightSmallPanel Instance;//将panel设为全局入口
+
     public Image background;
     private Transform anchor;
-    [SerializeField] private Button cancelButton;
-    private NormalItemInteraction bubbleItem;
     public bool IsVisible => gameObject.activeSelf; //当前panel是否可见
+
     private void Awake()
     {
+        Instance = this; //注册
         gameObject.SetActive(false);
-        cancelButton.onClick.AddListener(HideBubble);
     }
-
-    public void Setup(string content, Sprite bgSprite, Transform followAnchor, NormalItemInteraction item)
+    public void Setup(Transform followAnchor)
     {
 
-        text.text = content;
-        background.sprite = bgSprite;
         anchor = followAnchor;
-        bubbleItem = item; // 这里赋值
-        //Debug.Log("bubble panel显示");
+        gameObject.SetActive(true);
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (IsVisible && anchor != null)
@@ -38,6 +35,5 @@ public class BubblePanel : MonoBehaviour
     public void HideBubble()
     {
         gameObject.SetActive(false);
-        bubbleItem.CompleteInteraction();
     }
 }

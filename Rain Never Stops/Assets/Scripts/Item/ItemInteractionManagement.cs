@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +5,7 @@ public class ItemInteractionManagement : MonoBehaviour
 {
     [Header("场景")]
     [SerializeField] private SceneManagement sceneManager;
+    [SerializeField] private LightExitController lightExitController;
     [Header("可交互物体")]
     public int totalItems; // 总共多少个物体
     private int currentCount = 0;
@@ -37,22 +36,12 @@ public class ItemInteractionManagement : MonoBehaviour
         if (currentCount >= totalItems)
         {
             hasInteractAllItems = true;
+            
             Debug.Log("全部完成！");
-            //StartCoroutine(GoToNextScene());
+            lightExitController.ShowLargeLightLine();
         }
 
         
     }
 
-    IEnumerator GoToNextScene()
-    {
-        yield return new WaitForSeconds(5f);
-
-        bgAnimator.SetBool("InteractAllDone", true);
-
-        yield return new WaitForSeconds(1f);
-
-        //SceneManager.LoadScene("Scene_rain");
-        sceneManager.GoToNextScene();
-    }
 }

@@ -5,7 +5,6 @@ public class NormalItemInteraction : MonoBehaviour
 {
     [Header("Collider")]
     [SerializeField] private Collider2D triggerCollider; //判定玩家是否在附近
-    [SerializeField] private Collider2D mouseClickCollider; //判定鼠标是否正确点击物体
 
     [Header("眼睛UI")]
     [SerializeField] private EyePanel eyePanel;
@@ -14,17 +13,15 @@ public class NormalItemInteraction : MonoBehaviour
 
     [Header("气泡UI")]
     [SerializeField] private BubblePanel bubblePanel;    
-    //[SerializeField] private Transform canvasTransform; // 拖 Canvas
     [SerializeField] private Transform bubblePanelAnchor; // UI出现位置
     [SerializeField] private string contentText;//文字内容
-    [SerializeField] private Sprite panelSprite;//panel形状
+    [SerializeField] private Sprite panelSprite;//之后可添加大bubble和小bubble形状
 
     [Header("缩放")]
-    private SpriteRenderer spriteRenderer;
     [SerializeField] private float scaleMultiplier = 1.2f;
     private Vector3 originalScale;
 
-    [Header("是否已交互")]
+    [Header("交互管理")]
     [SerializeField] private ItemInteractionManagement itemInterManager;
     private bool hasInteracted = false;//是否已交互
     private bool playerNearItem = false;//玩家是否在触发bubble范围内
@@ -33,7 +30,7 @@ public class NormalItemInteraction : MonoBehaviour
     {
         originalScale = transform.localScale;
         bubblePanel.gameObject.SetActive(false);
-        eyePanel.gameObject.SetActive(false);
+        eyePanel.gameObject.SetActive(false);        
     }
 
     void Update()
@@ -50,7 +47,7 @@ public class NormalItemInteraction : MonoBehaviour
             // 判断是否点击到这个物体或其子物体
             if (hit.collider != null && hit.collider.transform.IsChildOf(transform))
             {
-                ShowHideBubblePanel();
+                ShowBubblePanel();
             }
 
         }
@@ -84,30 +81,27 @@ public class NormalItemInteraction : MonoBehaviour
             eyePanel.gameObject.SetActive(false);
         }
     }
-    void ShowHideBubblePanel()
+    void ShowBubblePanel()
     {
         bool isActive = bubblePanel.gameObject.activeSelf;
 
-        if (isActive)
-        {
-            // 已显示 → 关闭
-            bubblePanel.gameObject.SetActive(false);
-
-            // 第一次打开-关闭才计数
-            if (!hasInteracted)
-            {
-                hasInteracted = true;
-                itemInterManager.RegisterInteraction();
-            }
-        }
-        else
+        if(!isActive)
         {
             // 未显示 → 打开
-            bubblePanel.Setup(contentText, panelSprite, bubblePanelAnchor);
+            bubblePanel.Setup(contentText, panelSprite, bubblePanelAnchor, this);
             bubblePanel.gameObject.SetActive(true);
 
-            
         }
     }
-    
+
+    // BubblePanel 第一次点击 cancelBubble 时调用
+    public void CompleteInteraction()
+    {        
+        if (!hasInteracted)
+        {
+            hasInteracted = true;
+            itemInterManager.RegisterInteraction();
+        }
+    }
+
 }

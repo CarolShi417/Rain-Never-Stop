@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 285971260}
   - component: {fileID: 285971261}
   - component: {fileID: 285971262}
+  - component: {fileID: 285971263}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -186,6 +187,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: Scene0_rain
+--- !u!114 &285971263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285971258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481cf106eec57624dba80b774a17abb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneManager: {fileID: 0}
+  lightExitController: {fileID: 0}
+  totalItems: 0
+  hasInteractAllItems: 0
+  bgAnimator: {fileID: 0}
+  animationTriggers:
+  - Crash1
+  - Crash2
+  - Crash3
+  - Crash4
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,12 +403,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4599992693517055720, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
       propertyPath: m_Name
-      value: Light _large
+      value: Light_large_exit
       objectReference: {fileID: 0}
     - target: {fileID: 5185310111384778253, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
       propertyPath: sceneManager
       value: 
       objectReference: {fileID: 285971262}
+    - target: {fileID: 5185310111384778253, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
+      propertyPath: itemInteractionManager
+      value: 
+      objectReference: {fileID: 285971263}
     - target: {fileID: 9022554138352673682, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.7129335
@@ -619,11 +646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 928707463613281916, guid: 2b265f4c6a0496d4c9d0bf1b7cd8f01d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8502818
+      value: -2.020256
       objectReference: {fileID: 0}
     - target: {fileID: 928707463613281916, guid: 2b265f4c6a0496d4c9d0bf1b7cd8f01d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.927713
+      value: -9.93068
       objectReference: {fileID: 0}
     - target: {fileID: 928707463613281916, guid: 2b265f4c6a0496d4c9d0bf1b7cd8f01d, type: 3}
       propertyPath: m_LocalRotation.w

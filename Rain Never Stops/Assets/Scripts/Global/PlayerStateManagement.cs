@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class PlayerStateManagement
@@ -28,6 +29,9 @@ public static class PlayerStateManagement
             {
                 currentState = PlayerState.Dead;
                 deadTimer = 0f;
+
+                //触发结局1
+                Events.OnPlayerStateDead?.Invoke();
             }            
         }
         //if(玩家进入shelter1 2 或3)

@@ -2,12 +2,15 @@ using UnityEngine;
 using System.Collections;
 
 
-public class LightController : MonoBehaviour
+public class LightSmallController : MonoBehaviour
 {
+    [Header("灯和灯光")]
     public GameObject lightline_small;
     public GameObject light_small;
-
     private Animator animator;
+
+    public LightInteraction lightInteraction;
+    
 
     private void Start()
     {
@@ -23,6 +26,8 @@ public class LightController : MonoBehaviour
             // 让 lightline_small 半透明
             SetSpriteAlpha(lightline_small, 0.3f);
 
+            lightInteraction.ShowBubblePanel();
+
             StartCoroutine(DestroyByRain());
         }
     }
@@ -34,7 +39,8 @@ public class LightController : MonoBehaviour
             PlayerStateManagement.playerInLight = false;
             // 恢复透明度
             SetSpriteAlpha(lightline_small, 1f);
-            //Debug.Log("playerInLight" + PlayerStateManagement.playerInLight);
+
+            LightSmallPanel.Instance.HideBubble();
         }
     }
 
@@ -48,7 +54,7 @@ public class LightController : MonoBehaviour
     }
 
     //设置物体spriterenderer透明度
-    private void SetSpriteAlpha(GameObject obj, float alpha)
+    void SetSpriteAlpha(GameObject obj, float alpha)
     {
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
         if (sr != null)
@@ -58,4 +64,6 @@ public class LightController : MonoBehaviour
             sr.color = c;
         }
     }
+
+    
 }
