@@ -285,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 2098774039}
     - target: {fileID: 4707425941876139069, guid: ad8ff7c9030e3aa498ecdb3dac67bd3d, type: 3}
       propertyPath: contentText
-      value: "\u201D\u6211\u6CA1\u75C5\uFF01\u4F60\u4E5F\u6CA1\u75C5\uFF01\u201C"
+      value: "\u201C\u6211\u6CA1\u75C5\uFF01\u4F60\u4E5F\u6CA1\u75C5\uFF01\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 4707425941876139069, guid: ad8ff7c9030e3aa498ecdb3dac67bd3d, type: 3}
       propertyPath: panelPrefab
@@ -2890,6 +2890,22 @@ PrefabInstance:
     - target: {fileID: 7832266854997624797, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173040700539998831, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3162289
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173040700539998831, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
+      propertyPath: m_Size.y
+      value: 4.590043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173040700539998831, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0023920536
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173040700539998831, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.009307981
       objectReference: {fileID: 0}
     - target: {fileID: 8173040700539998831, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
