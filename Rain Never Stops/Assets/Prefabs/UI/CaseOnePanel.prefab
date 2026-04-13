@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 1369942844869396427}
   - component: {fileID: 994113281753982719}
   m_Layer: 5
-  m_Name: PagePanel
+  m_Name: CaseOnePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

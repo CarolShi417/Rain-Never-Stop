@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6570518607461591084}
   - component: {fileID: 4400758647182300308}
-  - component: {fileID: 4707425941876139069}
+  - component: {fileID: 875184138759445749}
   m_Layer: 0
-  m_Name: BubbleItem
+  m_Name: OLDBubbleItem
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8243515, y: 2.4597893}
   m_EdgeRadius: 0
---- !u!114 &4707425941876139069
+--- !u!114 &875184138759445749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,20 +91,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 267886780791454304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb146a30e145ee489cd323b97fee9ae, type: 3}
+  m_Script: {fileID: 11500000, guid: c4a5148cace6e1b44917e30cc3fbdac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerCollider: {fileID: 4400758647182300308}
-  mouseClickCollider: {fileID: 140127103964921874}
+  triggerCollider: {fileID: 0}
   eyePanel: {fileID: 0}
   eyePanelAnchor: {fileID: 0}
   nameText: 
+  scaleMultiplier: 1.2
+  itemInterManager: {fileID: 0}
   bubblePanel: {fileID: 0}
   bubblePanelAnchor: {fileID: 0}
   contentText: 
   panelSprite: {fileID: 0}
-  scaleMultiplier: 1.2
-  itemInterManager: {fileID: 0}
 --- !u!1 &2936054451222811999
 GameObject:
   m_ObjectHideFlags: 0
