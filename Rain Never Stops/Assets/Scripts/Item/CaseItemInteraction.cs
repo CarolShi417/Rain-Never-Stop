@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class CaseItemInteraction : NormalItemInteraction
 {
-    [Header("全屏UI")]
-    [SerializeField] private GameObject casePanel; // 
+    [Header("Panel和字母")]
+    [SerializeField] private CasePanel casePanel; // 
+    [SerializeField] private string[] myWords;  // 填单词
+    [SerializeField] private TextAsset myTextFile;  // 这个Item自己的txt
 
     protected override void Start()
     {
         base.Start();
-        casePanel.SetActive(false);
+        casePanel.gameObject.SetActive(false);
     }
 
     protected override void OnItemClicked()
     {
-        if (!casePanel.activeSelf)
+        if (!casePanel.gameObject.activeSelf)
         {
-            casePanel.SetActive(true);
-            // 如果全屏Panel有Setup方法，在这里调用
-            // fullscreenPanel.GetComponent<XxxPanel>().Setup(...);
-
+            casePanel.gameObject.SetActive(true); // 先激活，让Start执行
+            casePanel.Setup(myWords, myTextFile); // 激活后再Setup
         }
     }
 
     protected override void OnPlayerExit()
     {
-        casePanel.SetActive(false);
+        casePanel.gameObject.SetActive(false);
     }
 }

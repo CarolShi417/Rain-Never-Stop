@@ -19,10 +19,10 @@ public class EyePanel : MonoBehaviour
 
     void Update()
     {
-        if (anchor != null)
-        {
-            Vector2 screenPos = Camera.main.WorldToScreenPoint(anchor.position);
-            transform.position = screenPos;
-        }
+        // 任意一个为空就跳过，不报错
+        if (anchor == null || Camera.main == null) return;
+
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(anchor.position);
+        transform.position = screenPos;
     }
 }
