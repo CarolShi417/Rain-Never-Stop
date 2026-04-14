@@ -14,7 +14,7 @@ public class MonsterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.right * normalSpeed * Time.deltaTime);
+        //transform.Translate(Vector2.right * normalSpeed * Time.deltaTime);
     }
 
     void OnTriggerExit2D(Collider2D other)
