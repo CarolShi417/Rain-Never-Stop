@@ -82,8 +82,12 @@ public abstract class NormalItemInteraction : MonoBehaviour
         {
             playerNearItem = true;
 
-            eyePanel.Setup(nameText, eyePanelAnchor);
-            eyePanel.gameObject.SetActive(true);
+            if (eyePanel != null)
+            {
+                eyePanel.Setup(nameText, eyePanelAnchor);
+                eyePanel.gameObject.SetActive(true);
+            }
+
             OnPlayerEnter();
         }
     }
@@ -94,7 +98,11 @@ public abstract class NormalItemInteraction : MonoBehaviour
         {
             playerNearItem = false;
 
-            eyePanel.gameObject.SetActive(false);
+            if (eyePanel != null)
+                eyePanel.gameObject.SetActive(false);
+
+
+
             OnPlayerExit();
         }
     }
@@ -106,6 +114,7 @@ public abstract class NormalItemInteraction : MonoBehaviour
         if (!hasInteracted)
         {
             hasInteracted = true;
+            Debug.Log("当前场景完成一个物品交互");
             itemInterManager.RegisterInteraction();
         }
     }

@@ -19,7 +19,7 @@ public class DragDropWord : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [Header("传信号给CasePanel")]
     [SerializeField] private CasePanel casePanel; // 拖入同一个CasePanel
 
-    private void Start()
+    private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();

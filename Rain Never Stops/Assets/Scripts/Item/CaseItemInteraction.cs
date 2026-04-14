@@ -19,6 +19,8 @@ public class CaseItemInteraction : NormalItemInteraction
         {
             casePanel.gameObject.SetActive(true); // 先激活，让Start执行
             casePanel.Setup(myWords, myTextFile); // 激活后再Setup
+
+            CompleteInteraction(); //判定此物品已完成交互
         }
     }
 

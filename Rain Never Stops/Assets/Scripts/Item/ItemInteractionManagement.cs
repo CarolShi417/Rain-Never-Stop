@@ -3,11 +3,12 @@ using UnityEngine;
 public class ItemInteractionManagement : MonoBehaviour
 {
     [Header("场景")]
-    [SerializeField] private LightExitController lightExitController;
+    //[SerializeField] private SceneManagement sceneManager;
+    //[SerializeField] private LightExitController lightExitController;
 
     [Header("可交互物体")]
     public int totalItems;
-    private int currentCount = 0;
+    public int currentCount = 0;
     public bool hasInteractAllItems = false;
 
     // 进度变化时广播
@@ -31,7 +32,7 @@ public class ItemInteractionManagement : MonoBehaviour
         {
             hasInteractAllItems = true;
             Debug.Log("全部完成！");
-            lightExitController.ShowLargeLightLine();
+            //lightExitController.ShowLargeLightLine();
         }
     }
 }
