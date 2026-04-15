@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182ca554650c5d54c907c06aa24f6c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 6531088625140870920}
   background: {fileID: 1787859673806513099}
 --- !u!1 &5380790196257629859
 GameObject:
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4E00\u70B9\u6696\u610F\uFF0C\u8F6C\u77AC\u5373\u901D"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b741a2d455a0d3541aec8d1de83ee5dc, type: 2}
   m_sharedMaterial: {fileID: 5524305067841875593, guid: b741a2d455a0d3541aec8d1de83ee5dc, type: 2}

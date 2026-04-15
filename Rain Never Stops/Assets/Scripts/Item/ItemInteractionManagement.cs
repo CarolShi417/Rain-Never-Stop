@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class ItemInteractionManagement : MonoBehaviour
 {
-    [Header("场景")]
-    //[SerializeField] private SceneManagement sceneManager;
-    //[SerializeField] private LightExitController lightExitController;
-
     [Header("可交互物体")]
     public int totalItems;
     public int currentCount = 0;
     public bool hasInteractAllItems = false;
-
-    // 进度变化时广播
+    //[Header("广播")]
+    // 完成一次交互，广播一次，用于背景动画变化
     public static event System.Action<int> OnProgressChanged;
+    // 完成所有交互，广播一次，用于大灯亮，场景切换等
+    public static event System.Action OnAllCompleted;
 
     void Start()
     {
@@ -32,6 +30,7 @@ public class ItemInteractionManagement : MonoBehaviour
         {
             hasInteractAllItems = true;
             Debug.Log("全部完成！");
+            OnAllCompleted?.Invoke();
             //lightExitController.ShowLargeLightLine();
         }
     }

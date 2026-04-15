@@ -15,7 +15,5 @@ public class ShelterZoneManagement : MonoBehaviour
     void Update()
     {
         humidity = PlayerStateManagement.humidity;
-
-
     }
 }

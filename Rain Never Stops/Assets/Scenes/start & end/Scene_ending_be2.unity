@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2574812f7a1b64688343353ba9627e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 
+  nextScene: Scene_startScene
 --- !u!4 &612263160
 Transform:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2688315463908107157, guid: 163fddddecbd55144a4e3be7cc82671a, type: 3}
       propertyPath: m_text
-      value: "\u66B4\u96E8\u51B0\u51B7\u6709\u529B\u5730\u62CD\u6253\u5728\u4F60\u8EAB\u4E0A\u3002\n\u4F60\u611F\u89C9\u5230\u4F60\u7684\u8EAB\u4F53\u88AB\u6253\u5012\u3001\u6253\u6563\uFF0C\u7C89\u788E\u4E00\u5730\u3002"
+      value: "\u4E00\u6BB5\u5197\u957F\u53C8\u6DF7\u4E71\u7684\u68A6\u5883\u4F53\u9A8C\uFF0C\n\u4F60\u6D51\u8EAB\u75B2\u60EB\uFF0C\u4F46\u4F60\u8FD8\u5728\u8FD9\u91CC\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 3055933163478603839, guid: 163fddddecbd55144a4e3be7cc82671a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

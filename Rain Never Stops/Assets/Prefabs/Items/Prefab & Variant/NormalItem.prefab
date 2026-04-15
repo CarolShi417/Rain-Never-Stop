@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112420820989948279}
   - component: {fileID: 3870029541009719917}
+  - component: {fileID: 3230176394384261032}
   m_Layer: 0
   m_Name: NormalItem
   m_TagString: Interactable
@@ -227,6 +228,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2398274, y: 3.797104}
   m_EdgeRadius: 0
+--- !u!114 &3230176394384261032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791431253429804625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:6c39e091fed1a9b41af256a00c66f73a
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7361522496481993591
 GameObject:
   m_ObjectHideFlags: 0

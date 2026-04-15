@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("当前移动向量")]
     private float horizontalMove = 0f;
+    [Header("交互锁，控制玩家移动/静止")]
+    public static bool isMovementLocked = false;
 
     [Header("animation")]
     private Animator animator;

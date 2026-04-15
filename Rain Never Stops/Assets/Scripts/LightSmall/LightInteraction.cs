@@ -11,7 +11,6 @@ public class LightInteraction : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -41,7 +40,7 @@ public class LightInteraction : MonoBehaviour
             return;
         }
 
-        panel.Setup(bubblePanelAnchor);
+        panel.Setup(contentText, bubblePanelAnchor);
 
     }
 

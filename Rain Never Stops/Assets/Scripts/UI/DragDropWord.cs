@@ -58,7 +58,7 @@ public class DragDropWord : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             SnapToBlank();
             isCorrect = true;                  // 放对了
-            Debug.Log("放对了");
+            //Debug.Log("放对了");
             blankImage.color = correctColor;   // 变色
             casePanel.CheckAllCorrect();       // 通知CasePanel检查
         }

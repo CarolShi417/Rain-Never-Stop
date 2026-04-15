@@ -21,6 +21,8 @@ public class BubbleItemInteraction : NormalItemInteraction
         {
             bubblePanel.Setup(contentText, panelSprite, bubblePanelAnchor, this);
             bubblePanel.gameObject.SetActive(true);
+
+            CompleteInteraction();
         }
     }
 
