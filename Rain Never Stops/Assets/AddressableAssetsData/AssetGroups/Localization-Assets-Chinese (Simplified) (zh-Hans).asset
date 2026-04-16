@@ -10,27 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-String-Tables-Chinese (Simplified) (zh-Hans)
+  m_Name: Localization-Assets-Chinese (Simplified) (zh-Hans)
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-String-Tables-Chinese (Simplified) (zh-Hans)
+  m_GroupName: Localization-Assets-Chinese (Simplified) (zh-Hans)
   m_Data:
     m_SerializedData: []
-  m_GUID: 051acdf3e73e2934b8f4169e1e621f22
+  m_GUID: 9e02b6b19a655854989490bf2a90eb9f
   m_SerializeEntries:
-  - m_GUID: 20f42a0f767716d4090c416f01fb2d13
-    m_Address: Bubble Content_zh-Hans
+  - m_GUID: 0ee82fa2590c54745ab7153c09b4866a
+    m_Address: case_one_01_page2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh-Hans
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 258336b1f35432548b9c5994eee79348
-    m_Address: Case Content String_zh-Hans
+  - m_GUID: 400b3155b8ae5f9408b5cdc2b4aef756
+    m_Address: case_one_01_page1
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh-Hans
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ed496fdab8940a4392b650161e089a8
-    m_Address: Item Name_zh-Hans
+  - m_GUID: a6493f88fbcaf2947b6255e25ce8fc9a
+    m_Address: case_one_01_page3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6a3f8498793e0a4e89be46ab927691e
+    m_Address: case_one_02
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh-Hans
@@ -39,5 +45,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: e4c0f06abc324444d879fe4f7ee7bc60, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 544a77205d51dd84d9e453430704567c, type: 2}
-    - {fileID: 11400000, guid: 5ece06e0a1b3bca4da4198234d6a6f85, type: 2}
+    - {fileID: 11400000, guid: 426a1803455c1ba44b1e39e9b7d0bc97, type: 2}
+    - {fileID: 11400000, guid: e4d4ae9b14edf6b43a42236faba15080, type: 2}

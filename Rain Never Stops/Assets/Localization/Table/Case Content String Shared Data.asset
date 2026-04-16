@@ -10,31 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Bubble Content Shared Data
+  m_Name: Case Content String Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Bubble Content
-  m_TableCollectionNameGuidString: 03ff979f6ba2a20408d66793d8d47a71
+  m_TableCollectionName: Case Content String
+  m_TableCollectionNameGuidString: b5a6df463485e9b4cadebe48d6c997cc
   m_Entries:
-  - m_Id: 34498587852800
-    m_Key: text
+  - m_Id: 40480473088
+    m_Key: case_one_title
     m_Metadata:
       m_Items: []
-  - m_Id: 382293924577280
+  - m_Id: 95291637760
     m_Key: case_one_name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 383442052382720
-    m_Key: note_name
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 1316796342688284696
+    rid: 1316796367884517380
   references:
     version: 2
     RefIds:
-    - rid: 1316796342688284696
+    - rid: 1316796367884517380
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1776161110202
+        m_CustomEpoch: 1776257858833

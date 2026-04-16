@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class PagePanel : MonoBehaviour
@@ -15,10 +16,12 @@ public class PagePanel : MonoBehaviour
     public GameObject Page01;
     [Header("第2-最后页")]
     public GameObject Page02;
-    public GameObject PageEnd;
-    [SerializeField] private TextAsset casePage00;
-    [SerializeField] private TextAsset casePage01;
-    [SerializeField] private TextAsset casePage02;
+    public GameObject Page03;
+    public GameObject PageVersion2;
+    [SerializeField] private LocalizedAsset<TextAsset> casePage01;
+    [SerializeField] private LocalizedAsset<TextAsset> casePage02;
+    [SerializeField] private LocalizedAsset<TextAsset> casePage03;
+    [SerializeField] private LocalizedAsset<TextAsset> caseVersion2;
     [Header("病例正文")]
     public TMP_Text casePageText;
     
@@ -29,7 +32,12 @@ public class PagePanel : MonoBehaviour
         Page00.gameObject.SetActive(true);
         Page01.gameObject.SetActive(false);
         Page02.gameObject.SetActive(false);
-        casePageText.text = casePage00.text;
+        Page03.gameObject.SetActive(false);
+        PageVersion2.gameObject.SetActive(false);
+        casePageText.text = casePage01.LoadAsset().text;
+        casePageText.gameObject.SetActive(false);
+
+        nameText.gameObject.SetActive(false);
 
         // 初始 按钮无效
         confirmButton.interactable = false;
@@ -37,6 +45,8 @@ public class PagePanel : MonoBehaviour
 
         // 监听输入框变化，实时判断是否可以启用确认按钮
         nameInput.onValueChanged.AddListener(OnNameInputCompleted);
+
+        
     }
     public void Setup(string content)
     {
@@ -68,19 +78,40 @@ public class PagePanel : MonoBehaviour
 
             string name = nameInput.text;
             PlayerNameData.Instance.playerName = name;
-            //Debug.Log("玩家名字已保存: " + name);
+            Debug.Log("玩家名字已保存: " + name);
+            // 赋值并显示nameText
+            nameText.text = PlayerNameData.Instance.playerName;
+            nameText.gameObject.SetActive(true);
 
             Page00.gameObject.SetActive(false);
             Page01.gameObject.SetActive(true);
-            nameText.text = PlayerNameData.Instance.playerName;
-            casePageText.text = casePage01.text;
+            
+            //显示第1页病例文字
+            casePageText.gameObject.SetActive(true);            
         }
     }
 
-   public void onNextPageButton()
+   public void onToPage2Button()
     {
         Page01.gameObject.SetActive(false);
         Page02.gameObject.SetActive(true);
-        casePageText.text = casePage02.text;
+        casePageText.text = casePage02.LoadAsset().text;
+        Debug.Log("第二页");
+    }
+
+    public void onToPage3Button()
+    {
+        Page02.gameObject.SetActive(false);
+        Page03.gameObject.SetActive(true);
+        casePageText.text = casePage03.LoadAsset().text;
+        Debug.Log("第三页");
+    }
+
+    public void onCancelButton()
+    {
+        Page03.gameObject.SetActive(false);
+        PageVersion2.gameObject.SetActive(true);
+        casePageText.text = caseVersion2.LoadAsset().text;
+        gameObject.SetActive(false);
     }
 }

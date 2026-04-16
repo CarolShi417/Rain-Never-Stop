@@ -10,24 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Bubble Content_zh-Hans
+  m_Name: Case Content String_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: zh-Hans
-  m_SharedData: {fileID: 11400000, guid: 03ff979f6ba2a20408d66793d8d47a71, type: 2}
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b5a6df463485e9b4cadebe48d6c997cc, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 34498587852800
-    m_Localized: "\u4F60\u51B2\u5165\u96E8\u4E2D"
+  - m_Id: 40480473088
+    m_Localized: "Jiuyu City Mental Health Centre \xB7 Inpatient Medical Records"
     m_Metadata:
       m_Items: []
-  - m_Id: 382293924577280
-    m_Localized: "\u75C5\u4F8B"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 383442052382720
-    m_Localized: "\u4FBF\u7B7E"
+  - m_Id: 95291637760
+    m_Localized: 'Name:'
     m_Metadata:
       m_Items: []
   references:

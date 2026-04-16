@@ -18,16 +18,28 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 34498587852800
-    m_Localized: you enter the rain
+  - m_Id: 419230064508928
+    m_Localized: "\u201CI\u2019m not sick! Neither are you!\u201D"
     m_Metadata:
       m_Items: []
-  - m_Id: 382293924577280
-    m_Localized: case
+  - m_Id: 419230089674752
+    m_Localized: Damp and cold to the touch, warmth never known.
     m_Metadata:
       m_Items: []
-  - m_Id: 383442052382720
-    m_Localized: note
+  - m_Id: 419230089674753
+    m_Localized: The window locked, outside the rain pours.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674754
+    m_Localized: 'On the misted glass: Run! Get out!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674755
+    m_Localized: A fleeting warmth, gone in an instant.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674756
+    m_Localized: The eternal warm wind, where will it carry you?
     m_Metadata:
       m_Items: []
   references:

@@ -10,34 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-String-Tables-Chinese (Simplified) (zh-Hans)
+  m_Name: Localization-Assets-English (en)
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-String-Tables-Chinese (Simplified) (zh-Hans)
+  m_GroupName: Localization-Assets-English (en)
   m_Data:
     m_SerializedData: []
-  m_GUID: 051acdf3e73e2934b8f4169e1e621f22
+  m_GUID: bf1cbbaa0b5cc214eaa3f0ea6d39a8f4
   m_SerializeEntries:
-  - m_GUID: 20f42a0f767716d4090c416f01fb2d13
-    m_Address: Bubble Content_zh-Hans
+  - m_GUID: 9f17d5e7720230845a39ad6b95e76952
+    m_Address: case_one_01_page1_en
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-zh-Hans
+    - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 258336b1f35432548b9c5994eee79348
-    m_Address: Case Content String_zh-Hans
+  - m_GUID: c4f149c8ebb1bf34d8908799d7f57119
+    m_Address: case_one_02_en
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-zh-Hans
+    - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ed496fdab8940a4392b650161e089a8
-    m_Address: Item Name_zh-Hans
+  - m_GUID: cc660b71af1475044ba3d0cb9cfc0041
+    m_Address: case_one_01_page3_en
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-zh-Hans
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f71a42774a3574642845b56ea763720a
+    m_Address: case_one_01_page2_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: e4c0f06abc324444d879fe4f7ee7bc60, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 544a77205d51dd84d9e453430704567c, type: 2}
-    - {fileID: 11400000, guid: 5ece06e0a1b3bca4da4198234d6a6f85, type: 2}
+    - {fileID: 11400000, guid: a9c330105e4ec2b4c83c34498cd2a1b6, type: 2}
+    - {fileID: 11400000, guid: 30bdcd4b248fec5468fea44bf1818742, type: 2}

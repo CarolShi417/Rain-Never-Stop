@@ -13,6 +13,9 @@ public class BubbleItemInteraction : NormalItemInteraction
     {
         base.Start();
         bubblePanel.gameObject.SetActive(false);
+
+
+        SetBubbelText(contentText);
     }
 
     protected override void OnItemClicked()
@@ -29,6 +32,11 @@ public class BubbleItemInteraction : NormalItemInteraction
     protected override void OnPlayerExit()
     {
         bubblePanel.gameObject.SetActive(false);
+    }
+
+    public void SetBubbelText(string value)
+    {
+        contentText = value;
     }
 
 }

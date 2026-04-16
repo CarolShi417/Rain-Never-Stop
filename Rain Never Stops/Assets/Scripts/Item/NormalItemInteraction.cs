@@ -34,6 +34,7 @@ public abstract class NormalItemInteraction : MonoBehaviour
         eyePanel.gameObject.SetActive(false);
 
         SetNameText(nameText);
+
     }
 
 
