@@ -32,6 +32,9 @@ public abstract class NormalItemInteraction : MonoBehaviour
             originalScale = spriteRendererTransform.localScale; // 记录原始大小
 
         eyePanel.gameObject.SetActive(false);
+
+        SetNameText(nameText);
+
     }
 
 
@@ -64,6 +67,7 @@ public abstract class NormalItemInteraction : MonoBehaviour
             // 鼠标左键点击且悬停在物体上 → 交给子类处理具体行为
             if (Input.GetMouseButtonDown(0) && hovering)
             {
+                eyePanel.gameObject.SetActive(false);
                 OnItemClicked();
             }
         }
@@ -117,6 +121,12 @@ public abstract class NormalItemInteraction : MonoBehaviour
             Debug.Log("当前场景完成一个物品交互");
             itemInterManager.RegisterInteraction();
         }
+    }
+
+    // 用于本地化
+    public void SetNameText(string value)
+    {
+        nameText = value;
     }
 
     // 抽象方法：子类必须实现，定义点击后的具体行为

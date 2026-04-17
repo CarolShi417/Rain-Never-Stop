@@ -13,8 +13,10 @@ public class LightExitController : MonoBehaviour
     [Header("灯光和光线")]
     public GameObject bg; //环境光线亮-->黑
     public GameObject lightline_large;
-        //动画
+    //动画
     private Animator bg_animator;
+
+    
 
     void Start()
     {
@@ -23,10 +25,18 @@ public class LightExitController : MonoBehaviour
         lightline_large.gameObject.SetActive(!requireAllItems);
 
         bg_animator = bg.GetComponent<Animator>(); // 获取Animator
-        SetSpriteAlpha(lightline_large, 1f);
+        SetSpriteAlpha(lightline_large, 1f);//初始光线透明度为1
     }
 
-    
+    private void OnEnable()
+    {
+        ItemInteractionManagement.OnAllCompleted += ShowLargeLightLine;
+    }
+
+    private void OnDisable()
+    {
+        ItemInteractionManagement.OnAllCompleted -= ShowLargeLightLine;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

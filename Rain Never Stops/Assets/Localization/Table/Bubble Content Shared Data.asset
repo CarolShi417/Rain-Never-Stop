@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Bubble Content Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Bubble Content
+  m_TableCollectionNameGuidString: 03ff979f6ba2a20408d66793d8d47a71
+  m_Entries:
+  - m_Id: 419230064508928
+    m_Key: scene1_bubble_notes_one
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674752
+    m_Key: scene1_bubble_blanket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674753
+    m_Key: scene1_bubble_words_win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674754
+    m_Key: scene1_bubble_mirror
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674755
+    m_Key: bubble_light_small
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674756
+    m_Key: bubble_light_large
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1316796342688284696
+  references:
+    version: 2
+    RefIds:
+    - rid: 1316796342688284696
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1776161110202

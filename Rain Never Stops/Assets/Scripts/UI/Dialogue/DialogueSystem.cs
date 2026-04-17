@@ -15,7 +15,10 @@ public class DialogueSystem : MonoBehaviour
     public int index;
     List<string> textList = new List<string>();
     private bool isTyping = false; // 是否正在打字中
-
+    [Header("回调函数")]
+    public System.Action OnLastLineShown;// 判定是否为当前对话最后一句话，便于显示按钮
+    [Header("LeaveOrStay联动")]
+    [SerializeField] private NPCInteraction npcInteraction; // 拖入NPC对象
     public void Setup(TextAsset file)
     {
         GetTextFromFile(file); // 用传入的file而不是自身的textFile
@@ -29,6 +32,9 @@ public class DialogueSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // LeaveOrStay 显示时，禁止点击关闭对话
+            if (npcInteraction.leaveOrStay.activeSelf) return;
+
             if (isTyping)
             {
                 // 正在打字时点击 → 直接显示完整这句
@@ -88,5 +94,11 @@ public class DialogueSystem : MonoBehaviour
         }
 
         isTyping = false; // 打字完毕，允许点击进入下一句
+
+        // 打字结束后，判断是否是最后一句
+        if (index >= textList.Count)
+        {
+            OnLastLineShown?.Invoke();
+        }
     }
 }

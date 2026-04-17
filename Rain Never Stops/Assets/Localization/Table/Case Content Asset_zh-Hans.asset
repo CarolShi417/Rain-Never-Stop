@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97269afb30aa84742ae3f3342603618a, type: 3}
+  m_Name: Case Content Asset_zh-Hans
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh-Hans
+  m_SharedData: {fileID: 11400000, guid: 662dc05ca79c67b42b2b73e056c3303b, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5952962560
+    m_Localized: 400b3155b8ae5f9408b5cdc2b4aef756
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4240782327808
+    m_Localized: 0ee82fa2590c54745ab7153c09b4866a
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4249988825088
+    m_Localized: a6493f88fbcaf2947b6255e25ce8fc9a
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9955244703744
+    m_Localized: b6a3f8498793e0a4e89be46ab927691e
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

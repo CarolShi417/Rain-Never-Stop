@@ -6,6 +6,7 @@ public class LightSmallPanel : MonoBehaviour
 {
     public static LightSmallPanel Instance;//将panel设为全局入口
 
+    public TMP_Text text;
     public Image background;
     private Transform anchor;
     public bool IsVisible => gameObject.activeSelf; //当前panel是否可见
@@ -15,9 +16,9 @@ public class LightSmallPanel : MonoBehaviour
         Instance = this; //注册
         gameObject.SetActive(false);
     }
-    public void Setup(Transform followAnchor)
+    public void Setup(string content, Transform followAnchor)
     {
-
+        text.text = content;
         anchor = followAnchor;
         gameObject.SetActive(true);
     }

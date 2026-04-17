@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Bubble Content_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 03ff979f6ba2a20408d66793d8d47a71, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 419230064508928
+    m_Localized: "\u201CI\u2019m not sick! Neither are you!\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674752
+    m_Localized: Damp and cold to the touch, warmth never known.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674753
+    m_Localized: The window locked, outside the rain pours.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674754
+    m_Localized: 'On the misted glass: Run! Get out!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674755
+    m_Localized: A fleeting warmth, gone in an instant.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419230089674756
+    m_Localized: The eternal warm wind, where will it carry you?
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -9,4 +9,8 @@ public static class Events
 
     // Ending2：被怪物杀
     public static Action OnPlayerEatedByMonster;
+
+    public static Action TriggerBadEnding3;
+
+    public static Action TriggerHappyEnding1;
 }
