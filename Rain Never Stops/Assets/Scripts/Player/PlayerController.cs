@@ -12,11 +12,11 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private MoveMode moveMode = MoveMode.LeftRight;
 
     [Header("移动范围")]
-    public float minX  = -10f;
+    public float minX = -10f;
     public float maxX = 10f;
     [Header("移动速度")]
     [SerializeField] private float currentSpeed;//在inspector显示当前速度，方便调试
-    
+
     [SerializeField] private float drySpeed = 20f;
     [SerializeField] private float lightlyWetSpeed = 15f;
     [SerializeField] private float moderatelyWetSpeed = 10f;
@@ -34,9 +34,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>(); // 获取Animator
-    }
+        //进入新场景获取一次Bebavior
+        PlayerStateManagement.ChangeBehaviorState();
 
-    // Update is called once per frame
+        ShowAnimationFromLastScene();
+
+
+    }
+        // Update is called once per frame
     void Update()
     {
         //如果接到电话，停止一切行动
@@ -45,7 +50,7 @@ public class PlayerController : MonoBehaviour
         //获取最新的behavior
         PlayerStateManagement.ChangeBehaviorState();
 
-        
+
 
         //解锁，可以移动和更新动画
         if (!PlayerLockState.isMovementLocked)
@@ -61,9 +66,9 @@ public class PlayerController : MonoBehaviour
             //上锁时，回归idle状态
             animator.SetBool("isLocked", PlayerLockState.isMovementLocked);
             animator.SetFloat("moveSpeed", 0f);
-        }
-        
-        
+    }
+
+
     }
 
     void HandleMovement()
@@ -83,7 +88,7 @@ public class PlayerController : MonoBehaviour
         horizontalMove = horizontal * currentSpeed;
 
         // 限制X轴范围
-        float newX = transform.position.x + horizontalMove * Time.deltaTime;        
+        float newX = transform.position.x + horizontalMove * Time.deltaTime;
         newX = Mathf.Clamp(newX, minX, maxX);
 
         // 应用新位置
@@ -91,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
         // 移动
         //transform.Translate(Vector2.right * horizontalMove * Time.deltaTime);
-        
+
         // 改变x轴方向
         if (horizontal != 0)
         {
@@ -125,6 +130,32 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("State", (int)PlayerStateManagement.currentBehaviorState + 1);
 
     }
+
+    void ShowAnimationFromLastScene()
+    {
+        int state = (int)PlayerStateManagement.currentBehaviorState;
+        switch (PlayerStateManagement.currentBehaviorState)
+        {
+            case PlayerBehaviorState.Dry:
+                animator.Play("player_01_dry_idle");
+                break;
+            case PlayerBehaviorState.LightlyWet:
+                animator.Play("player_02_lightlyWet_idle");
+                break;
+            case PlayerBehaviorState.ModeratelyWet:
+                animator.Play("player_03_moderatelyWet_idle");
+                break;
+            case PlayerBehaviorState.HeavilyWet:
+                animator.Play("player_04_heavilyWet_idle");
+                break;
+            case PlayerBehaviorState.Saturated:
+                animator.Play("player_05_saturated_idle");
+                break;
+        }
+
+    }
+
+
 }
 
 

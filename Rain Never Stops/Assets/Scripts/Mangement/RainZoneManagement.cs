@@ -21,7 +21,7 @@ public class RainZoneManagement : MonoBehaviour
     void Start()
     {
         enterRainSceneTime++;
-        Debug.Log("进入雨场景次数: " + enterRainSceneTime);
+        //Debug.Log("进入雨场景次数: " + enterRainSceneTime);
         humidity = PlayerStateManagement.humidity;
         light_group_generation.SpawnRandomLights(3);
         

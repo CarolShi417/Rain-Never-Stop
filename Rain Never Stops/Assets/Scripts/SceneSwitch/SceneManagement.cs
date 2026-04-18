@@ -62,14 +62,18 @@ public class SceneManagement : MonoBehaviour
         else if (currentScene == "Scene0_rain")
         {
             enterRainSceneCount++;
-            Debug.Log("进入雨场景次数为 = " + enterRainSceneCount);
+            //Debug.Log("进入雨场景次数为 = " + enterRainSceneCount);
 
             if (enterRainSceneCount == 1)
                 SceneManager.LoadScene("Scene2_childroom");
             else if (enterRainSceneCount == 2)
                 SceneManager.LoadScene("Scene5_clinic");
         }
-        SceneManager.LoadScene(nextScene);
+        else
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+            
     }
 
     public void Restart()

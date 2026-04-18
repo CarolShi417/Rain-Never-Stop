@@ -875,6 +875,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 319178408}
   contentText: "\u6478\u8D77\u6765\u6F6E\u6E7F\u51B0\u51B7\uFF0C\u5C31\u50CF\u4ECE\u672A\u611F\u5230\u6E29\u6696\u3002"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 0}
 --- !u!4 &427797099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8680550530162626407, guid: 9676fa004cc340a4aa47e8070ec56398, type: 3}
@@ -1100,7 +1101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652508389}
-  - component: {fileID: 652508390}
+  - component: {fileID: 652508396}
   - component: {fileID: 652508391}
   - component: {fileID: 652508393}
   - component: {fileID: 652508395}
@@ -1127,20 +1128,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &652508390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652508387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b4527b07d2fa64f834dc999771965f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 1624236469}
-  teleAudioSource: {fileID: 652508391}
 --- !u!82 &652508391
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1283,6 +1270,19 @@ MonoBehaviour:
   totalItems: 0
   currentCount: 0
   hasInteractAllItems: 0
+--- !u!114 &652508396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652508387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f52b27134abaf44ade5dbc38f1cc87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  humidity: 0
 --- !u!1 &712139743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +1894,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 971550081}
   contentText: "\u201C\u6211\u6CA1\u75C5\uFF01\u4F60\u4E5F\u6CA1\u75C5\uFF01\u201D"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 0}
 --- !u!61 &1463076710 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 1501537358743135977, guid: f68228bda3397a4419c2b8c1457acdbe, type: 3}
@@ -2153,6 +2154,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 1562231935}
   contentText: "\u201C\u6211\u6CA1\u75C5\uFF01\u4F60\u4E5F\u6CA1\u75C5\uFF01\u201D"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 0}
 --- !u!1001 &1583858586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2463,11 +2465,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 1612257319}
   contentText: "\u7A97\u6237\u9501\u6B7B\u4E86\uFF0C\u5916\u9762\u66B4\u96E8\u5982\u6CE8\u3002"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
---- !u!1 &1624236469 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1538055268524558568, guid: adadfbb032bd4824a9a166a93d86e8e3, type: 3}
-  m_PrefabInstance: {fileID: 5372986286924494953}
-  m_PrefabAsset: {fileID: 0}
+  cancelButton: {fileID: 0}
 --- !u!224 &1624236470 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7707979050127355293, guid: adadfbb032bd4824a9a166a93d86e8e3, type: 3}
@@ -2741,6 +2739,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 1869900660}
   contentText: "\u6C34\u96FE\u4E0A\u5199\u7740\uFF1A\u5FEB\u8DD1\uFF01\u79BB\u5F00\u8FD9\u91CC\uFF01"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 0}
 --- !u!1001 &2039634236
 PrefabInstance:
   m_ObjectHideFlags: 0

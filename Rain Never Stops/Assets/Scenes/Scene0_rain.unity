@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2574812f7a1b64688343353ba9627e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Scene5_clinic
+  nextScene: 
 --- !u!1 &301081070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,7 +2446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 625482053095786525, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: drySpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 625482053095786525, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: moveMode

@@ -12,6 +12,9 @@ public static class PlayerStateManagement
     public static bool isTeleTrigger = false;//是否触发接电话，触发的话player动作暂停……？
 
     public static float humidity = 0f;//湿度值
+    
+    
+
     public static float deadTimer = 0f;//用于判定humidity=20是否超过2s
     public static void ChangeState()
     {
@@ -76,5 +79,8 @@ public static class PlayerStateManagement
             //Debug.Log($"玩家动画状态 changed: {currentBehaviorState}");
         }
         //Debug.Log("StateManagement Humidity为" + humidity);
+        Debug.Log("currentBehaviorState为" + currentBehaviorState);
     }
+
+
 }

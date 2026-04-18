@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WardZoneManagement : MonoBehaviour
+public class WardZoneAudio : MonoBehaviour
 {
-    public GameObject dialoguePanel;
+    //public GameObject dialoguePanel;
     public AudioSource teleAudioSource;//电话铃声
 
     
@@ -12,7 +12,7 @@ public class WardZoneManagement : MonoBehaviour
 
     void Start()
     {
-        dialoguePanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
         //StartCoroutine(ShowPanelAfterDelay());
         
     }
