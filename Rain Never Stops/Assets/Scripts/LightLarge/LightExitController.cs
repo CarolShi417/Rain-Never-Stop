@@ -66,6 +66,8 @@ public class LightExitController : MonoBehaviour
 
     IEnumerator GoToNextScene()
     {
+        PlayerLockState.isMovementLocked = true;
+
         if (lightInteraction != null)
         {
             lightInteraction.ShowBubblePanel();

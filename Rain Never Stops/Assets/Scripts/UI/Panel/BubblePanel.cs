@@ -28,12 +28,12 @@ public class BubblePanel : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("IsVisible: " + IsVisible + " | anchor: " + anchor); // ✅ 先确认这两个
+        Debug.Log("IsVisible: " + IsVisible + " | anchor: " + anchor); 
         if (IsVisible && anchor != null)
         {
             Vector2 screenPos = Camera.main.WorldToScreenPoint(anchor.position);
             transform.position = screenPos;
-            //Debug.Log("BubblePanel位置: " + screenPos);
+            Debug.Log("BubblePanel位置: " + screenPos);
         }
     }
 

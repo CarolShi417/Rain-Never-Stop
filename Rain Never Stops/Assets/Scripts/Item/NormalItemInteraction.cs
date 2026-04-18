@@ -26,7 +26,6 @@ public abstract class NormalItemInteraction : MonoBehaviour
     [Header("交互管理")]
     [SerializeField] private ItemInteractionManagement itemInterManager;
     private bool hasInteracted = false;//是否已交互
-    private string lastDebugState = ""; // 记录上一次的状态
 
     protected virtual void Start()
     {
@@ -54,6 +53,12 @@ public abstract class NormalItemInteraction : MonoBehaviour
         // 判断命中的碰撞体是否属于本物体（包括子物体）
         bool hovering = (hit.collider != null && hit.collider.transform.IsChildOf(transform));
 
+        // 如果子类Panel显示，点击任意位置通知子类关闭
+        if (Input.GetMouseButtonDown(0) && IsChildPanelOpen())
+        {
+            HideChildPanel();
+            return; // 不再执行后续点击逻辑
+        }
 
         if (playerNearItem)
         {
@@ -75,10 +80,24 @@ public abstract class NormalItemInteraction : MonoBehaviour
             // 鼠标左键点击且悬停在物体上 → 交给子类处理具体行为
             if (Input.GetMouseButtonDown(0) && hovering)
             {
-                if (!eyePanel.gameObject.activeSelf)
-                    ShowEyePanel();  // 第一次点击 → 显示EyePanel
-                else
+                Debug.Log("hovering = " + hovering);
+                Debug.Log("hasShownEyePanel = " + hasShownEyePanel);
+                if (hasShownEyePanel && eyePanel.gameObject.active)
+                {
                     HideEyePanel();  // 再次点击 → 隐藏EyePanel，触发OnItemClicked
+
+                    PlayerLockState.isMovementLocked = true;
+
+                    OnItemClicked();
+                    CompleteInteraction();
+                }
+                else
+                {
+                    ShowEyePanel();
+                    PlayerLockState.isMovementLocked = false;
+
+                }
+                
             }
         }
         else if (isMouseHovering)
@@ -96,26 +115,7 @@ public abstract class NormalItemInteraction : MonoBehaviour
         {
             playerNearItem = true;
 
-
-
-            // 第一次进入，或者离开后再进入
-            if (isPlayerExited || !hasShownEyePanel)
-            {
-                isPlayerExited = false;
-                ShowEyePanel();
-
-
-
-                //按下空格
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!eyePanel.gameObject.activeSelf)
-                        ShowEyePanel();  // 第一次点击 → 显示EyePanel
-                    else
-                        HideEyePanel();  // 再次点击 → 隐藏EyePanel，触发OnItemClicked
-                }
-
-            }
+            ShowEyePanel();      
             
 
             OnPlayerEnter();
@@ -129,12 +129,6 @@ public abstract class NormalItemInteraction : MonoBehaviour
             playerNearItem = false;
             isPlayerExited = true;// 标记玩家已离开
 
-
-
-            if (eyePanel != null)
-                eyePanel.gameObject.SetActive(false);
-
-
             OnPlayerExit();
         }
     }
@@ -147,9 +141,6 @@ public abstract class NormalItemInteraction : MonoBehaviour
             eyePanel.gameObject.SetActive(true);
             hasShownEyePanel = true;
         }
-
-        
-
     }
 
     void HideEyePanel()
@@ -159,12 +150,9 @@ public abstract class NormalItemInteraction : MonoBehaviour
         {
             eyePanel.gameObject.SetActive(false);
         }
+        hasShownEyePanel = false;
 
-        
-        OnItemClicked();
 
-        //完成交互
-        CompleteInteraction();
     }
     
     // 当前物品完成交互
@@ -193,7 +181,9 @@ public abstract class NormalItemInteraction : MonoBehaviour
     // 抽象方法：子类必须实现，定义点击后的具体行为
     protected abstract void OnItemClicked();
 
-    
+
+    protected virtual bool IsChildPanelOpen() => false;
+    protected virtual void HideChildPanel() { }
 
     // 虚方法：子类可选重写，处理玩家进入范围时的额外逻辑
     protected virtual void OnPlayerEnter() { }

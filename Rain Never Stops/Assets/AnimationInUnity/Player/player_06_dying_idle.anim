@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: player_06_dead_walk
+  m_Name: player_06_dying_idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 986a94fb9ee8ad940b1dff0cfe1a184d, type: 3}
-    - time: 0.2
-      value: {fileID: 21300000, guid: c5824f93d2692dc43ae2ba1667b6cc49, type: 3}
-    - time: 0.4
-      value: {fileID: 21300000, guid: 8f664fb47bc5b2b44840fa9d99aa1c6d, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300000, guid: 5778f1da5ade9944e8dafeb54a78787e, type: 3}
-    - time: 0.78333336
-      value: {fileID: 21300000, guid: 378c364a339245845a41a8bc4d7d7149, type: 3}
-    - time: 0.98333335
-      value: {fileID: 21300000, guid: c7d8332011ccf4748b47f77e205f03e9, type: 3}
+      value: {fileID: 21300000, guid: 07e192c44eacb404a91069b8de2dac5f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,18 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 986a94fb9ee8ad940b1dff0cfe1a184d, type: 3}
-    - {fileID: 21300000, guid: c5824f93d2692dc43ae2ba1667b6cc49, type: 3}
-    - {fileID: 21300000, guid: 8f664fb47bc5b2b44840fa9d99aa1c6d, type: 3}
-    - {fileID: 21300000, guid: 5778f1da5ade9944e8dafeb54a78787e, type: 3}
-    - {fileID: 21300000, guid: 378c364a339245845a41a8bc4d7d7149, type: 3}
-    - {fileID: 21300000, guid: c7d8332011ccf4748b47f77e205f03e9, type: 3}
+    - {fileID: 21300000, guid: 07e192c44eacb404a91069b8de2dac5f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

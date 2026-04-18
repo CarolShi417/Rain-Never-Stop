@@ -12,7 +12,7 @@ public enum PlayerBehaviorState
     ModeratelyWet,
     HeavilyWet,
     Saturated,
-    Dead
+    Dying
 }
 
 // 玩家移动锁

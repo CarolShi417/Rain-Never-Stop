@@ -65,13 +65,17 @@ public static class PlayerStateManagement
         {
             currentBehaviorState = PlayerBehaviorState.ModeratelyWet;
         }
-        else if (humidity <= 17f && humidity > 10f)
+        else if (humidity <= 15f && humidity > 10f)
         {
             currentBehaviorState = PlayerBehaviorState.HeavilyWet;
         }
-        else if (humidity < 20f && humidity > 17f)
+        else if (humidity <= 18f && humidity > 15f)
         {
             currentBehaviorState = PlayerBehaviorState.Saturated;
+        }
+        else if(humidity < 20f && humidity > 18f)
+        {
+            currentBehaviorState = PlayerBehaviorState.Dying;
         }
 
         if (previousBehaviorState != currentBehaviorState)
@@ -79,7 +83,7 @@ public static class PlayerStateManagement
             //Debug.Log($"玩家动画状态 changed: {currentBehaviorState}");
         }
         //Debug.Log("StateManagement Humidity为" + humidity);
-        Debug.Log("currentBehaviorState为" + currentBehaviorState);
+        //Debug.Log("currentBehaviorState为" + currentBehaviorState);
     }
 
 

@@ -10,12 +10,14 @@ public class LightEnterController : MonoBehaviour
     {
         StartCoroutine(ShowandHideLight());
         bg_animator = bg.GetComponent<Animator>();
+        PlayerLockState.isMovementLocked = true;
     }
 
     IEnumerator ShowandHideLight()
     {
         yield return new WaitForSeconds(2f);
         //播放动画
+        PlayerLockState.isMovementLocked = false;
         gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         

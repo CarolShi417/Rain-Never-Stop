@@ -24,17 +24,19 @@ public class BubbleItemInteraction : NormalItemInteraction
     {
         base.Update();
 
-        ////BubblePanel 显示时，点击任意位置关闭
-        //if (bubblePanel.gameObject.activeSelf && Input.GetMouseButtonDown(0))
-        //{
-        //    bubblePanel.gameObject.SetActive(false);
-        //}
+        
     }
 
     // 点击物品，打开bubblePanel
     protected override void OnItemClicked()
     {
         ShowBubblePanel();
+    }
+    protected override bool IsChildPanelOpen() => bubblePanel.gameObject.activeSelf;
+
+    protected override void HideChildPanel()
+    {
+        HideBubblePanel();
     }
 
     void ShowBubblePanel()
@@ -43,11 +45,8 @@ public class BubbleItemInteraction : NormalItemInteraction
         {
             bubblePanel.Setup(contentText, panelSprite, bubblePanelAnchor, this);
             bubblePanel.gameObject.SetActive(true);
-            //Debug.Log("BubblePanel已显示, activeSelf: " + bubblePanel.gameObject.activeSelf); // ✅
+            Debug.Log("BubblePanel已显示, activeSelf: " + bubblePanel.gameObject.activeSelf); // ✅
 
-            // 上锁 玩家停止移动
-            PlayerLockState.isMovementLocked = true;
-            //Debug.Log("isMovementLocked = " + PlayerLockState.isMovementLocked);
 
         }
     }

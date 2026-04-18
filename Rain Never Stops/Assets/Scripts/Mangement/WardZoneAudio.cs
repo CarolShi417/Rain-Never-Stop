@@ -23,30 +23,30 @@ public class WardZoneAudio : MonoBehaviour
         
     }
 
-    IEnumerator ShowPanelAfterDelay()
-    {
-        // 等2秒
-        yield return new WaitForSeconds(2f);
+    //IEnumerator ShowPanelAfterDelay()
+    //{
+    //    // 等2秒
+    //    yield return new WaitForSeconds(2f);
 
-        // 锁定玩家
-        PlayerStateManagement.isTeleTrigger = true;
+    //    // 锁定玩家
+    //    PlayerStateManagement.isTeleTrigger = true;
 
-        // 播放电话铃声（循环）
-        teleAudioSource.loop = true;
-        teleAudioSource.Play();
+    //    // 播放电话铃声（循环）
+    //    teleAudioSource.loop = true;
+    //    teleAudioSource.Play();
 
-        // 再等3秒
-        yield return new WaitForSeconds(6f);
+    //    // 再等3秒
+    //    yield return new WaitForSeconds(6f);
 
-        // 显示UI
-        dialoguePanel.SetActive(true);
+    //    // 显示UI
+    //    dialoguePanel.SetActive(true);
 
-        // 停止铃声（掐断）
-        teleAudioSource.Stop();
+    //    // 停止铃声（掐断）
+    //    teleAudioSource.Stop();
 
-        // 解锁玩家
-        PlayerStateManagement.isTeleTrigger = false;
-    }
+    //    // 解锁玩家
+    //    PlayerStateManagement.isTeleTrigger = false;
+    //}
 
     
 }

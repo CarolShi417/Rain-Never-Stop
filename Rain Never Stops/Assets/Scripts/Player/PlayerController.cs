@@ -20,8 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float drySpeed = 20f;
     [SerializeField] private float lightlyWetSpeed = 15f;
     [SerializeField] private float moderatelyWetSpeed = 10f;
-    [SerializeField] private float heavilyWetSpeed = 5f;
-    [SerializeField] private float saturatedSpeed = 3f;
+    [SerializeField] private float heavilyWetSpeed = 6f;
+    [SerializeField] private float saturatedSpeed = 4f;
+    [SerializeField] private float dyingSpeed = 2f;
 
     [Header("当前移动向量")]
     private float horizontalMove = 0f;
@@ -55,19 +56,18 @@ public class PlayerController : MonoBehaviour
         //解锁，可以移动和更新动画
         if (!PlayerLockState.isMovementLocked)
         {
-            //处理移动
+            //处理玩家移动
             HandleMovement();
-
-            //处理动画状态
+            animator.SetBool("isLocked", false); // ✅ 解锁时设false
+            //处理动画
             UpdateAnimation();
         }
         else
         {
-            //上锁时，回归idle状态
-            animator.SetBool("isLocked", PlayerLockState.isMovementLocked);
+            animator.SetBool("isLocked", true);  // ✅ 锁定时设true
             animator.SetFloat("moveSpeed", 0f);
-    }
-
+            animator.SetInteger("State", (int)PlayerStateManagement.currentBehaviorState + 1);
+        }
 
     }
 
@@ -75,12 +75,6 @@ public class PlayerController : MonoBehaviour
     {
         // 获取输入
         float horizontal = Input.GetAxis("Horizontal");
-
-        //进入rain scene，只能往右走
-        //if (moveMode == MoveMode.RightOnly)
-        //{
-        //    horizontal = Mathf.Max(0f, horizontal);
-        //}
 
 
         // 根据状态获取速度
@@ -113,6 +107,7 @@ public class PlayerController : MonoBehaviour
                 case PlayerBehaviorState.ModeratelyWet: return moderatelyWetSpeed;
                 case PlayerBehaviorState.HeavilyWet: return heavilyWetSpeed;
                 case PlayerBehaviorState.Saturated: return saturatedSpeed;
+                case PlayerBehaviorState.Dying: return dyingSpeed;
 
                 default:
                     Debug.LogError("没有匹配的PlayerBehaviorState");
@@ -150,6 +145,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerBehaviorState.Saturated:
                 animator.Play("player_05_saturated_idle");
+                break;
+            case PlayerBehaviorState.Dying:
+                animator.Play("player_06_dying_idle");
                 break;
         }
 
