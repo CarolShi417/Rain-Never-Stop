@@ -869,6 +869,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 319178408}
   contentText: "\u6478\u8D77\u6765\u6F6E\u6E7F\u51B0\u51B7\uFF0C\u5C31\u50CF\u4ECE\u672A\u611F\u5230\u6E29\u6696\u3002"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 1754381401}
 --- !u!114 &319178413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1604,6 +1605,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 831874401}
     - target: {fileID: 2249604961305158421, guid: e3145db46d3b345419dd0c202962e3b6, type: 3}
+      propertyPath: eyePanelButton
+      value: 
+      objectReference: {fileID: 6814867263260803828}
+    - target: {fileID: 2249604961305158421, guid: e3145db46d3b345419dd0c202962e3b6, type: 3}
       propertyPath: itemInterManager
       value: 
       objectReference: {fileID: 652508394}
@@ -1646,6 +1651,10 @@ PrefabInstance:
     - target: {fileID: 6344908193571127309, guid: e3145db46d3b345419dd0c202962e3b6, type: 3}
       propertyPath: m_Name
       value: case_one
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344908193571127309, guid: e3145db46d3b345419dd0c202962e3b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2256,6 +2265,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 1562231935}
   contentText: "\u201C\u6211\u6CA1\u75C5\uFF01\u4F60\u4E5F\u6CA1\u75C5\uFF01\u201D"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 6814867263260803828}
 --- !u!114 &1562231940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2502,6 +2512,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 1612257319}
   contentText: "\u7A97\u6237\u9501\u6B7B\u4E86\uFF0C\u5916\u9762\u66B4\u96E8\u5982\u6CE8\u3002"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 1754381401}
 --- !u!114 &1612257324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,6 +2584,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1240680962311126724, guid: 252f4f5ef10e5da4a87d916c1e64ed5f, type: 3}
   m_PrefabInstance: {fileID: 2112688892}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1754381401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4119212162820124289, guid: dbc963ccbdabe1547a7896ae38466b32, type: 3}
+  m_PrefabInstance: {fileID: 813148167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1805117212 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7870399768044413444, guid: 662fa51abbf18074daa635414d67cbc7, type: 3}
@@ -2782,6 +2804,7 @@ MonoBehaviour:
   bubblePanelAnchor: {fileID: 1869900660}
   contentText: "\u6C34\u96FE\u4E0A\u5199\u7740\uFF1A\u5FEB\u8DD1\uFF01\u79BB\u5F00\u8FD9\u91CC\uFF01"
   panelSprite: {fileID: 21300000, guid: 658e4a9d7ddc58447917b7bb51e770f8, type: 3}
+  cancelButton: {fileID: 1754381401}
 --- !u!114 &1869900665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3583,6 +3606,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0ea563cfe82fc14e911b1f4c0f2e890, type: 3}
+--- !u!114 &6814867263260803828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 27819641857419485, guid: d0ea563cfe82fc14e911b1f4c0f2e890, type: 3}
+  m_PrefabInstance: {fileID: 6814867263260803827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

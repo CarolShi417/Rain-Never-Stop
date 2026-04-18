@@ -1,8 +1,8 @@
 public enum PlayerState
 {
-    Alive, //»î×Å
-    Dead,  //ËÀÁË
-    Settled// ½øÈëshelter
+    Alive, //æ´»ç€
+    Dead,  //æ­»äº†
+    Settled// è¿›å…¥shelter
 }
 
 public enum PlayerBehaviorState
@@ -15,10 +15,15 @@ public enum PlayerBehaviorState
     Dead
 }
 
+// ç©å®¶ç§»åŠ¨é”
+public static class PlayerLockState
+{
+    public static bool isMovementLocked = false;
+}
 //RainZoneController
-//        ¡ı
+//        â†“
 //PlayerStateManagement
-//        ¡ı
+//        â†“
 //PlayerState
-//        ¡ı
+//        â†“
 //PlayerController / Animator

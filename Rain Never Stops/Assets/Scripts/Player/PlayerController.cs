@@ -45,11 +45,24 @@ public class PlayerController : MonoBehaviour
         //获取最新的behavior
         PlayerStateManagement.ChangeBehaviorState();
 
-        //处理移动
-        HandleMovement();
+        
 
-        //处理动画状态
-        UpdateAnimation();
+        //解锁，可以移动和更新动画
+        if (!PlayerLockState.isMovementLocked)
+        {
+            //处理移动
+            HandleMovement();
+
+            //处理动画状态
+            UpdateAnimation();
+        }
+        else
+        {
+            //上锁时，回归idle状态
+            animator.SetBool("isLocked", PlayerLockState.isMovementLocked);
+            animator.SetFloat("moveSpeed", 0f);
+        }
+        
         
     }
 

@@ -7,13 +7,13 @@ public class BubblePanel : MonoBehaviour
     public TMP_Text text;
     public Image background;
     private Transform anchor;
-    [SerializeField] private Button cancelButton;
+
     private NormalItemInteraction bubbleItem;
     public bool IsVisible => gameObject.activeSelf; //当前panel是否可见
     private void Awake()
     {
         gameObject.SetActive(false);
-        cancelButton.onClick.AddListener(HideBubble);
+        
     }
 
     public void Setup(string content, Sprite bgSprite, Transform followAnchor, NormalItemInteraction item)
@@ -28,16 +28,14 @@ public class BubblePanel : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log("IsVisible: " + IsVisible + " | anchor: " + anchor); // ✅ 先确认这两个
         if (IsVisible && anchor != null)
         {
             Vector2 screenPos = Camera.main.WorldToScreenPoint(anchor.position);
             transform.position = screenPos;
+            //Debug.Log("BubblePanel位置: " + screenPos);
         }
     }
 
-    public void HideBubble()
-    {
-        gameObject.SetActive(false);
-        bubbleItem.CompleteInteraction();
-    }
+    
 }
