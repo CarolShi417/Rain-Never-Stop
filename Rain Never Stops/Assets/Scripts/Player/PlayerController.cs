@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,9 +41,10 @@ public class PlayerController : MonoBehaviour
 
         ShowAnimationFromLastScene();
 
-
+        //监听PlayerStateManagement 何时触发纸人死亡
+        Events.OnPlayerStateDead += OnPlayerDead;
     }
-        // Update is called once per frame
+     
     void Update()
     {
         //如果接到电话，停止一切行动
@@ -153,7 +155,37 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        // 物体销毁或禁用时取消订阅，防止内存泄漏
+        Events.OnPlayerStateDead -= OnPlayerDead;
+    }
 
+    // 收到死亡事件时执行
+    private void OnPlayerDead()
+    {
+        PlayerLockState.isMovementLocked = true; // 锁定玩家移动
+        animator.SetBool("isDead", true);        // 触发Animator死亡动画transition
+        StartCoroutine(WaitAndSwitch());         // 开始等待协程
+    }
+
+    //死亡动画协程
+    IEnumerator WaitAndSwitch()
+    {
+        yield return null; // 等一帧，确保Animator已切换到死亡动画状态
+
+        // 获取当前死亡动画的时长
+        float animLength = animator.GetCurrentAnimatorStateInfo(0).length;
+
+        // 等待动画播放完毕
+        yield return new WaitForSeconds(animLength);
+
+        // 再额外等待2秒
+        yield return new WaitForSeconds(2f);
+
+        // 跳转到结局场景
+        FindObjectOfType<SceneManagement>()?.GoToEnding1();
+    }
 }
 
 

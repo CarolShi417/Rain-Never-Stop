@@ -7,7 +7,7 @@ public abstract class NormalItemInteraction : MonoBehaviour
     [SerializeField] private Collider2D triggerCollider; //判定玩家是否在附近
     private bool isPlayerExited = false;// 如果玩家出去再进来，才锁定；如果玩家一直在trigger范围内，只锁定刚进来那次
     
-    private bool hasShownEyePanel = false;
+    //private bool hasShownEyePanel = false;
 
     [Header("眼睛UI")]
     [SerializeField] protected EyePanel eyePanel;
@@ -54,11 +54,11 @@ public abstract class NormalItemInteraction : MonoBehaviour
         bool hovering = (hit.collider != null && hit.collider.transform.IsChildOf(transform));
 
         // 如果子类Panel显示，点击任意位置通知子类关闭
-        if (Input.GetMouseButtonDown(0) && IsChildPanelOpen())
-        {
-            HideChildPanel();
-            return; // 不再执行后续点击逻辑
-        }
+        //if (Input.GetMouseButtonDown(0) && IsChildPanelOpen())
+        //{
+        //    HideChildPanel();//这里关闭了
+        //    return; // 不再执行后续点击逻辑
+        //}
 
         if (playerNearItem)
         {
@@ -81,12 +81,9 @@ public abstract class NormalItemInteraction : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && hovering)
             {
                 Debug.Log("hovering = " + hovering);
-                Debug.Log("hasShownEyePanel = " + hasShownEyePanel);
-                if (hasShownEyePanel && eyePanel.gameObject.active)
+                if (eyePanel.gameObject.activeSelf)
                 {
                     HideEyePanel();  // 再次点击 → 隐藏EyePanel，触发OnItemClicked
-
-                    PlayerLockState.isMovementLocked = true;
 
                     OnItemClicked();
                     CompleteInteraction();
@@ -94,11 +91,10 @@ public abstract class NormalItemInteraction : MonoBehaviour
                 else
                 {
                     ShowEyePanel();
-                    PlayerLockState.isMovementLocked = false;
-
-                }
-                
+                }                
             }
+
+            
         }
         else if (isMouseHovering)
         {
@@ -139,7 +135,6 @@ public abstract class NormalItemInteraction : MonoBehaviour
         {
             eyePanel.Setup(nameText, eyePanelAnchor);
             eyePanel.gameObject.SetActive(true);
-            hasShownEyePanel = true;
         }
     }
 
@@ -150,7 +145,6 @@ public abstract class NormalItemInteraction : MonoBehaviour
         {
             eyePanel.gameObject.SetActive(false);
         }
-        hasShownEyePanel = false;
 
 
     }
@@ -167,10 +161,6 @@ public abstract class NormalItemInteraction : MonoBehaviour
         }
     }
 
-    protected void UnlockPlayerMovement()
-    {
-        PlayerLockState.isMovementLocked = false;
-    }
 
     // 用于本地化
     public void SetNameText(string value)

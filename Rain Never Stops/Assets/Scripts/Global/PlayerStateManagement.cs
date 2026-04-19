@@ -53,27 +53,27 @@ public static class PlayerStateManagement
     {
         PlayerBehaviorState previousBehaviorState = currentBehaviorState;
 
-        if (humidity <= 0f && humidity >= 2f)
+        if (humidity <= 2f)
         {
             currentBehaviorState = PlayerBehaviorState.Dry;
         }
-        else if (humidity <= 5f && humidity > 2f)
+        else if (humidity <= 5f)
         {
             currentBehaviorState = PlayerBehaviorState.LightlyWet;
         }
-        else if (humidity <= 10f && humidity > 5f)
+        else if (humidity <= 10f)
         {
             currentBehaviorState = PlayerBehaviorState.ModeratelyWet;
         }
-        else if (humidity <= 15f && humidity > 10f)
+        else if (humidity <= 13f)
         {
             currentBehaviorState = PlayerBehaviorState.HeavilyWet;
         }
-        else if (humidity <= 18f && humidity > 15f)
+        else if (humidity <= 18f)
         {
             currentBehaviorState = PlayerBehaviorState.Saturated;
         }
-        else if(humidity < 20f && humidity > 18f)
+        else if(humidity < 20f)
         {
             currentBehaviorState = PlayerBehaviorState.Dying;
         }

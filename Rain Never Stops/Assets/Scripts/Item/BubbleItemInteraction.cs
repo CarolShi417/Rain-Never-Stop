@@ -14,7 +14,7 @@ public class BubbleItemInteraction : NormalItemInteraction
     protected override void Start()
     {
         base.Start();
-        bubblePanel.gameObject.SetActive(false);
+        //bubblePanel.gameObject.SetActive(false);
         cancelButton.onClick.AddListener(HideBubblePanel);
 
         SetBubbelText(contentText);
@@ -24,7 +24,7 @@ public class BubbleItemInteraction : NormalItemInteraction
     {
         base.Update();
 
-        
+        PlayerLockState.isMovementLocked = bubblePanel.gameObject.activeSelf ? true : false;
     }
 
     // 点击物品，打开bubblePanel
@@ -43,10 +43,11 @@ public class BubbleItemInteraction : NormalItemInteraction
     {
         if (!bubblePanel.gameObject.activeSelf)
         {
+            Debug.Log("BubblePanel InstanceID: " + bubblePanel.gameObject.GetInstanceID());
             bubblePanel.Setup(contentText, panelSprite, bubblePanelAnchor, this);
             bubblePanel.gameObject.SetActive(true);
             Debug.Log("BubblePanel已显示, activeSelf: " + bubblePanel.gameObject.activeSelf); // ✅
-
+            //Debug.Log("父物体: " + bubblePanel.transform.parent.name + " 激活状态: " + bubblePanel.transform.parent.gameObject.activeSelf);
 
         }
     }
@@ -54,7 +55,6 @@ public class BubbleItemInteraction : NormalItemInteraction
     public void HideBubblePanel()
     {
         bubblePanel.gameObject.SetActive(false);
-        UnlockPlayerMovement();
     }
 
     //用于本地化

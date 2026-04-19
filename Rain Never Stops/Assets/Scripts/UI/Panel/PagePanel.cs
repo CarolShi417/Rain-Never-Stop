@@ -11,8 +11,10 @@ public class PagePanel : MonoBehaviour
     public GameObject Page00;
     public TMP_Text warningText;  // 提示玩家必须输入名字
     public Button confirmButton;
-    [Header("第1页")]
+    [Header("姓名栏")]
+    public GameObject NameGroup;
     public TMP_Text nameText;
+    [Header("第1页")]    
     public GameObject Page01;
     [Header("第2-最后页")]
     public GameObject Page02;
@@ -37,7 +39,7 @@ public class PagePanel : MonoBehaviour
         casePageText.text = casePage01.LoadAsset().text;
         casePageText.gameObject.SetActive(false);
 
-        nameText.gameObject.SetActive(false);
+        NameGroup.gameObject.SetActive(false);
 
         // 初始 按钮无效
         confirmButton.interactable = false;
@@ -81,7 +83,7 @@ public class PagePanel : MonoBehaviour
             Debug.Log("玩家名字已保存: " + name);
             // 赋值并显示nameText
             nameText.text = PlayerNameData.Instance.playerName;
-            nameText.gameObject.SetActive(true);
+            NameGroup.gameObject.SetActive(true);
 
             Page00.gameObject.SetActive(false);
             Page01.gameObject.SetActive(true);

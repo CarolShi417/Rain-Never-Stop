@@ -12,6 +12,13 @@ public class PageItemInteraction : NormalItemInteraction
         pagePanel.gameObject.SetActive(false);
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        PlayerLockState.isMovementLocked = pagePanel.gameObject.activeSelf ? true : false;
+    }
+
     protected override void OnItemClicked()
     {
         if (!pagePanel.gameObject.activeSelf)

@@ -2446,7 +2446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 625482053095786525, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: drySpeed
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 625482053095786525, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: moveMode
@@ -2454,11 +2454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 625482053095786525, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: saturatedSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 625482053095786525, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: heavilyWetSpeed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 625482053095786525, guid: fd8a8730e4b97da4aa7fe996bc4f362e, type: 3}
       propertyPath: lightlyWetSpeed

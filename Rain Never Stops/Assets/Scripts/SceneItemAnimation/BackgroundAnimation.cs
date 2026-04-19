@@ -24,7 +24,7 @@ public class BackgroundAnimation : MonoBehaviour
         {
             string triggerName = animationTriggers[count - 1];
             bgAnimator.SetTrigger(triggerName);
-            Debug.Log("播放第 " + count + " 段动画: " + triggerName);
+            //Debug.Log("播放第 " + count + " 段动画: " + triggerName);
         }
     }
 

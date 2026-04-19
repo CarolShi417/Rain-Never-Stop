@@ -18,22 +18,23 @@ public class DialogueSystem : MonoBehaviour
     [Header("回调函数")]
     public System.Action OnLastLineShown;// 判定是否为当前对话最后一句话，便于显示按钮
     [Header("LeaveOrStay联动")]
-    [SerializeField] private NPCInteraction npcInteraction; // 拖入NPC对象
+    [SerializeField] private DoctorNPCInteraction npcInteraction; // 拖入NPC对象
     public void Setup(TextAsset file)
     {
+        //Debug.Log("Setup 被调用, file = " + file);
         GetTextFromFile(file); // 用传入的file而不是自身的textFile
         StopAllCoroutines();
         dialogueText.text = "";
         speakerText.text = "";
         StartCoroutine(SetTextUI());
     }
-
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             // LeaveOrStay 显示时，禁止点击关闭对话
-            if (npcInteraction.leaveOrStay.activeSelf) return;
+            if (npcInteraction.ChoicePanel.activeSelf) return;
 
             if (isTyping)
             {
