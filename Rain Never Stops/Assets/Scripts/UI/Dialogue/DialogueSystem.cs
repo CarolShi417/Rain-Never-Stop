@@ -34,7 +34,7 @@ public class DialogueSystem : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // LeaveOrStay 显示时，禁止点击关闭对话
-            if (npcInteraction.ChoicePanel.activeSelf) return;
+            if (npcInteraction != null && npcInteraction.ChoicePanel.activeSelf) return;
 
             if (isTyping)
             {

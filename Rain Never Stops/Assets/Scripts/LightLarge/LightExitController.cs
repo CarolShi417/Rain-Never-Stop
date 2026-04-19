@@ -51,7 +51,7 @@ public class LightExitController : MonoBehaviour
                 return;
             }
 
-            if (itemInteractionManager != null && itemInteractionManager.hasInteractAllItems)
+            if (itemInteractionManager.hasInteractAllItems)//itemInteractionManager != null && 
             {
                 
                 StartCoroutine(GoToNextScene());

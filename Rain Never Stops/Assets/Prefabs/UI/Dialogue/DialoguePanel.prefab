@@ -91,9 +91,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2605941841510670632}
-  Speaker: {fileID: 6607291174077605196}
+  speakerText: {fileID: 6607291174077605196}
   textFile: {fileID: 4900000, guid: 3351ff6e318ccb243bc23088fcdf4cea, type: 3}
   index: 14
+  npcInteraction: {fileID: 0}
 --- !u!1 &2178110927393495671
 GameObject:
   m_ObjectHideFlags: 0

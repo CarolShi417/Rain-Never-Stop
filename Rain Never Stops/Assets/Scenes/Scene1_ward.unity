@@ -2976,7 +2976,7 @@ PrefabInstance:
     - target: {fileID: 5185310111384778253, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
       propertyPath: itemInteractionManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 652508394}
     - target: {fileID: 7151772429636028180, guid: 9e005a60eb7a47840b719f6941b2d67b, type: 3}
       propertyPath: m_Size.x
       value: 2.174839

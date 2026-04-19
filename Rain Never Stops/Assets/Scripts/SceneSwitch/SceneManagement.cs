@@ -55,11 +55,11 @@ public class SceneManagement : MonoBehaviour
     {
         string currentScene = SceneManager.GetActiveScene().name;
 
-        if (currentScene == "Scene1_ward")
-        {
-            enterRainSceneCount = 0; // 回到病房重置
-        }
-        else if (currentScene == "Scene0_rain")
+        //if (currentScene == "Scene1_ward")
+        //{
+        //    enterRainSceneCount = 0; // 回到病房重置
+        //}
+        if (currentScene == "Scene0_rain")
         {
             enterRainSceneCount++;
             //Debug.Log("进入雨场景次数为 = " + enterRainSceneCount);
@@ -72,6 +72,7 @@ public class SceneManagement : MonoBehaviour
         else
         {
             SceneManager.LoadScene(nextScene);
+            Debug.Log("nextScene = " + nextScene);
         }
             
     }
